@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="tabs">
+    <button class="tab-button" [class.active]="activeTab === 'form'" (click)="selectTab('form')">Formulario</button>
+    <button class="tab-button" [class.active]="activeTab === 'preview'" (click)="selectTab('preview')">Vista Previa</button>
+  </div>
+
+  <div *ngIf="activeTab === 'form'" class="tab-content">
+    <h2 class="title">Ingresar Información del Personal de Salud</h2>
+    <form [formGroup]="form" class="form-custom">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="ano">Año</label>
+          <input id="ano" type="text" formControlName="ano" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="estudiante">Estudiante</label>
+          <input id="estudiante" type="text" formControlName="estudiante" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="interno">Interno</label>
+          <input id="interno" type="text" formControlName="interno" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="residente">Residente</label>
+          <input id="residente" type="text" formControlName="residente" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="nombrado">Nombrado</label>
+          <input id="nombrado" type="text" formControlName="nombrado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="contratado">Contratado</label>
+          <input id="contratado" type="text" formControlName="contratado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="otro">Otro</label>
+          <input id="otro" type="text" formControlName="otro" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="activeTab === 'preview'" class="tab-content">
+    <h2 class="title">FORMATO CONSOLIDADO DE INFORMACIÓN RELACIONADA AL PERSONAL DE LA SALUD</h2>
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th rowspan="2" class="th-ano">AÑO</th>
+          <th colspan="7" class="th-personal">N° de Personal de la salud</th>
+        </tr>
+        <tr>
+          <th class="th-sub">Estudiante</th>
+          <th class="th-sub">Interno</th>
+          <th class="th-sub">Residente</th>
+          <th class="th-sub">Nombrado</th>
+          <th class="th-sub">Contratado</th>
+          <th class="th-sub">Otro</th>
+          <th class="th-sub">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ tableData.ano }}</td>
+          <td>{{ tableData.estudiante }}</td>
+          <td>{{ tableData.interno }}</td>
+          <td>{{ tableData.residente }}</td>
+          <td>{{ tableData.nombrado }}</td>
+          <td>{{ tableData.contratado }}</td>
+          <td>{{ tableData.otro }}</td>
+          <td>{{ tableData.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

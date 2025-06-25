@@ -1,0 +1,30 @@
+<nav class="navbar">
+    <div class="navbar-content">
+      <div class="logo">
+        <img src="assets/imgs/logo.png" alt="Meditest Logo">
+        <span>HistoMedi</span>
+      </div>
+      <ul class="nav-links">
+        <li><a (click)="onNavigation('inicio')" 
+          [ngClass]="{ 'active' : nowNavigation === 'inicio' }" >Inicio</a></li>
+        <li><a (click)="onNavigation('servicios')" 
+          [ngClass]="{ 'active' : nowNavigation === 'servicios' }">Servicios</a></li>
+        <li><a (click)="onNavigation('nosotros')" 
+          [ngClass]="{ 'active' : nowNavigation === 'nosotros' }">Nosotros</a></li>
+        <li><a (click)="onNavigation('personal')" 
+          [ngClass]="{ 'active' : nowNavigation === 'personal' }">Personal</a></li>
+      </ul>
+      <div class="nav-actions">
+        
+        @if(!activeSearch){
+          <div class="search-bar">
+            <!-- <input type="text" placeholder="Buscar"
+              [(ngModel)]="vSearch"> -->
+            <button class="search-icon"
+            (click)="onNavigation('search')"><i class="fas fa-search"></i></button> <!-- Placeholder for search icon -->
+          </div>
+        }
+        <button class="contact-btn">Contactanos</button>
+      </div>
+    </div>
+</nav>

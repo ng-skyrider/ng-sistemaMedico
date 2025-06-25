@@ -1,0 +1,64 @@
+{
+    "indicadores": [
+      {
+        "id": 1,
+        "evento_vigilado": "Infección del torrente sanguíneo (ITS) asociada a catéter venoso central (CVC)",
+        "tipo_indicador": "Densidad de incidencia",
+        "calculo": "Número de ITS asociada a CVC / Número de días de CVC x 1000"
+      },
+      {
+        "id": 2,
+        "evento_vigilado": "Infección del torrente sanguíneo (ITS) asociada a catéter venoso periférico (CVP)",
+        "tipo_indicador": "NDensidad de incidencia",
+        "calculo": "Número de ITS asociada a CVP / Número de días de CVP x 1000"
+      },
+      {
+        "id": 3,
+        "evento_vigilado": "Infección del torrente sanguíneo (ITS) asociada a Nutrición Parenteral Total (NPT)",
+        "tipo_indicador": "Densidad de incidencia",
+        "calculo": "Número de ITS asociada a NPT / Número de días de NPT x 1000"
+      },
+      {
+        "id": 4,
+        "evento_vigilado": "Infección del torrente sanguíneo (ITS) asociada a Catéter para hemodiálisis",
+        "tipo_indicador": "Densidad de incidencia",
+        "calculo": "Número de ITS asociada a catéter para hemodiálisis / Número de días de catéter para hemodiálisis x 1000"
+      },
+      {
+        "id": 5,
+        "evento_vigilado": "Infección del tracto urinario (ITU) asociada a catéter urinario permanente (CUP)",
+        "tipo_indicador": "Densidad de incidencia",
+        "calculo": "Número de ITU asociada a CUP / Número de días de CUP x 1000"
+      },
+      {
+        "id": 6,
+        "evento_vigilado": "Neumonía (NEU) asociada a ventilación mecánica (VM)",
+        "tipo_indicador": "Densidad de incidencia",
+        "calculo": "Número de NEU asociada a VM / Número de días de VM x 1000"
+      },
+      {
+        "id": 7,
+        "evento_vigilado": "Infección de Sitio Quirúrgico (ISQ)",
+        "tipo_indicador": "Incidencia acumulada",
+        "calculo": "Número de casos de ISQ pos cirugía según tipo / Número de cirugías del mismo tipo x 100"
+      },
+      {
+        "id": 8,
+        "evento_vigilado": "Endometritis puerperal (END)",
+        "tipo_indicador": "Incidencia acumulada",
+        "calculo": "Número de pacientes post parto vaginal con END / Número de pacientes con parto vaginal x 100"
+      },
+      {
+        "id": 9,
+        "evento_vigilado": "Exposiciones laborales a agentes patógenos de la sangre",
+        "tipo_indicador": "Incidencia acumulada",
+        "calculo": "N° de casos accidentes punzocortantes en el personal sanitario / Total de personal de la salud de la IPRESS x 100"
+      },
+      {
+        "id": 10,
+        "evento_vigilado": "Exposición ocupacional (membrana mucosa o piel no intacta) a agentes patógenos de la sangre",
+        "tipo_indicador": "Incidencia acumulada",
+        "calculo": "N° casos de exposición ocupacional a agentes patógenos de la sangre en el personal de la salud según tipo / Total de personal sanitario de la IPRESS x 100"
+      }
+    ]
+}

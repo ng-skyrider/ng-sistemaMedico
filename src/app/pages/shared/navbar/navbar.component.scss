@@ -1,0 +1,118 @@
+
+
+@import '../../../../../public/assets/css/variables.scss';
+
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: $text-light;
+    padding: 15px 0; // Adjusted padding
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    left: 0;
+    right: 0;
+  
+    .navbar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px; // Padding for content within max-width
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        height: 40px; // Adjust as needed
+        margin-right: 10px;
+      }
+      span {
+        font-size: 24px;
+        font-weight: bold;
+        color: $primary-bg;
+      }
+    }
+  
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-left: 30px;
+        a {
+          text-decoration: none;
+          color: $nav-link-color;
+          font-weight: 500;
+          transition: color 0.3s ease;
+          cursor: pointer;
+          &.active, &:hover {
+            color: $primary-bg;
+            text-shadow: 1px 0px 1px $primary-bg;
+          }
+        }
+      }
+    }
+  
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+  
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      background-color: $search-bg;
+      border-radius: 20px;
+      padding: 5px 5px 5px 15px;
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        margin-right: 5px;
+        color: $text-dark;
+        &::placeholder {
+          color: $text-secondary;
+        }
+      }
+      .search-icon {
+        background-color: $primary-bg;
+        color: $text-light;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: $primary-bg-hover;
+        }
+        i {
+          font-size: 14px;
+        }
+      }
+    }
+  
+    .contact-btn {
+      background-color: $primary-bg;
+      color: $text-light;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: $primary-bg-hover;
+      }
+    }
+  }
+  

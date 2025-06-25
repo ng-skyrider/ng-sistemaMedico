@@ -1,0 +1,245 @@
+/* Using the primary accent color defined in global styles.scss */
+:host {
+  display: block;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+.histories-clinic-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.tabs-nav {
+  display: flex;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 20px;
+
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #495057;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px; /* Align with container border */
+
+    &.active {
+      color: var(--primary-accent-color, #5D9CEC);
+      border-bottom-color: var(--primary-accent-color, #5D9CEC);
+      font-weight: 500;
+    }
+
+    &:hover:not(.active) {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+.tab-content {
+  .tab-pane {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-accent-color, #5D9CEC);
+  text-align: center;
+}
+
+.plan-title {
+  margin-top: 40px; /* More space before this title */
+}
+
+.subsection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+
+  .subsection-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+    margin: 0; // Remove default margins if any
+    text-align: left;
+  }
+}
+
+.btn-add-row, .btn-remove-row {
+  background-color: var(--primary-accent-color, #5D9CEC);
+  color: white;
+  border: none;
+  border-radius: 50%; // Makes it circular
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 28px; // Center content vertically
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: darken(#5D9CEC, 10%);
+  }
+}
+
+.btn-remove-row {
+  background-color: #e74c3c; // A red color for removal
+  &:hover {
+    background-color: darken(#e74c3c, 10%);
+  }
+}
+
+.subsection-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.problem-section {
+  margin-bottom: 30px;
+}
+
+.clinic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .actions-cell {
+    width: 60px; // Adjust as needed
+    text-align: center;
+  }
+
+  td {
+    input[type="text"],
+    input[type="date"] {
+      padding: 6px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      box-sizing: border-box; /* Ensures padding and border are inside the element's total width and height */
+    }
+
+    .form-control-small {
+      width: 100%;
+      min-width: 100px;
+    }
+
+    .form-control-full {
+      width: 100%;
+    }
+
+    input[type="checkbox"] {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.attention-plan-table {
+  th.date-subhead {
+    font-size: 0.8rem;
+    padding: 4px 2px; // Reduced padding for sub-headers
+    text-align: center;
+    background-color: #e9ecef; // Slightly different background for sub-headers
+  }
+
+  td {
+    padding: 4px; // Adjust padding for cells with many inputs
+  }
+
+  input.form-control-date {
+    width: 40px; // Small width for DD/MM
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 0.85rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    &.year {
+      width: 60px; // Slightly wider for AAAA
+    }
+  }
+
+  td:nth-child(1) { /* N° column */
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  td:nth-child(2) { /* Descripcion column */
+    font-size: 0.85rem;
+    vertical-align: middle;
+  }
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  label {
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  input[type="text"] {
+    padding: 6px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+
+  .form-control-large {
+    width: 300px;
+  }
+  .form-control-medium {
+    width: 100px;
+  }
+
+  .format-label {
+    font-weight: bold;
+    color: #555;
+  }
+}

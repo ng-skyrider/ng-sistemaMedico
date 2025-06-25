@@ -1,0 +1,81 @@
+<div class="search-container">
+  <div class="search-header">
+    <h1>Búsqueda de Pacientes</h1>
+    <p>Encuentra historiales clínicos por DNI, nombre, historial, y filtra por fecha y ubigeo.</p>
+  </div>
+
+  <form [formGroup]="searchForm" class="search-form-container">
+    <div class="search-controls">
+      <div class="filter-buttons">
+        <button type="button" [class.active]="searchBy === 'dni'" (click)="setSearchBy('dni')">
+          <i class="fas fa-id-card"></i> Por DNI
+        </button>
+        <button type="button" [class.active]="searchBy === 'name'" (click)="setSearchBy('name')">
+          <i class="fas fa-user"></i> Por Nombre y Apellido
+        </button>
+        <button type="button" [class.active]="searchBy === 'history'" (click)="setSearchBy('history')">
+          <i class="fas fa-file-medical"></i> Por Historial
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input 
+          type="text" 
+          formControlName="searchControl" 
+          [placeholder]="'Buscar por ' + (searchBy === 'dni' ? 'DNI' : searchBy === 'name' ? 'nombre' : 'historial') + '...'"
+          class="search-input">
+      </div>
+    </div>
+
+    <div class="additional-filters">
+      <div class="filter-group">
+        <label for="fechaEmision">Fecha de Emisión</label>
+        <input 
+          type="text" 
+          onfocus="(this.type='date')" 
+          onblur="if(!this.value) this.type='text'"
+          id="fechaEmision" 
+          formControlName="fechaEmisionControl" 
+          class="filter-input"
+          placeholder="dd/mm/aaaa">
+      </div>
+      <div class="filter-group">
+        <label for="ubigeo">Ubigeo</label>
+        <input type="text" id="ubigeo" formControlName="ubigeoControl" placeholder="Ingrese Ubigeo" class="filter-input">
+      </div>
+    </div>
+  </form>
+
+  <div class="results-container">
+    <table class="results-table" *ngIf="filteredPatients.length > 0; else noResults">
+      <thead>
+        <tr>
+          <th>DNI</th>
+          <th>Nombre Completo</th>
+          <th>Nro. Historial Clínico</th>
+          <th>Fecha Emisión</th>
+          <th>Ubigeo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of filteredPatients">
+          <td>{{ patient.dni }}</td>
+          <td>{{ patient.name }} {{ patient.lastName }}</td>
+          <td>{{ patient.medicalHistoryId }}</td>
+          <td>{{ patient.fechaEmision }}</td>
+          <td>{{ patient.ubigeo }}</td>
+          <td>
+            <button class="btn-view-history">Ver Historial</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noResults>
+      <div class="no-results">
+        <i class="fas fa-folder-open"></i>
+        <p>No se encontraron resultados para tu búsqueda.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

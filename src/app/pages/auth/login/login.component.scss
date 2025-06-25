@@ -1,0 +1,119 @@
+
+@import '../../../../../public/assets/css/variables.scss';
+
+
+.auth-container {
+  background-color: $hero-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92.2vh;
+}
+
+.auth-card {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.auth-header {
+  margin-bottom: 25px;
+
+  .logo {
+    width: 35px; // Adjust size as needed
+    height: auto;
+    margin-bottom: 15px;
+    position: absolute;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.auth-form {
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box; // Ensures padding doesn't affect width
+
+      &:focus {
+        border-color: var(--primary-accent-color);
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(93, 156, 236, 0.25); /* Adjusted box-shadow color */
+      }
+
+      &.is-invalid{
+        box-shadow: 0 0 0 0.16rem rgba(255, 0, 0, 0.25);
+        border: none;
+        border: 1px solid var(--danger-color);
+        outline: none;
+      }
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: #ffffff;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-accent-hover-color);
+      border-color: var(--primary-accent-hover-color);
+    }
+  }
+}
+
+.auth-footer {
+  margin-top: 25px;
+  font-size: 14px;
+
+  p {
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  a {
+    color: var(--primary-accent-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

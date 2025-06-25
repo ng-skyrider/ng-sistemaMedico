@@ -1,0 +1,138 @@
+<div class="home-container">
+  <!-- Navigation Bar -->
+  <app-navbar 
+  (changeNav)="navigateIn($event)"
+  (inputSearch)="onSearch($event)"></app-navbar>
+
+  <!-- Hero Section (Inicio) -->
+  @if(navTab === 'inicio'){
+    <section class="hero-section">
+      <div class="hero-content-area">
+        <div class="hero-text">
+          <p class="subtitle"> Atención y reporte 24/7 </p>
+          <h1> Bienvenido al sistema de atencion médica </h1>
+          <p class="description">
+            Este sistema es un sistema de atencion médica en donde los medicos pueden ver los historiales clinicos de los pacientes.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-appointment" 
+              (click)="onLogin()"
+              [@bounceOut]="animation_ingresar">Ingresar</button>
+            <a href="https://wa.me/51962125823?text=Hola%2C%20quiero%20más%20información" class="btn-phone" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i> +51 962 125 823
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h2>20+</h2>
+              <p>Años de experiencia</p>
+            </div>
+            <div class="stat-item">
+              <h2>10+</h2>
+              <p>Doctores</p>
+            </div>
+            <div class="stat-item">
+              <h2>5+</h2>
+              <p>Oficinas</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          
+          <img [src]="heroImages[currentImageIndex].imgs" alt="Doctors" class="hero-main-image"           
+               [@backInRight]="animationState_right"
+               [@backInDown]="animationState_down"> 
+          <div class="rating-badge">
+            <div class="stars">
+              @for(star of [1,2,3,4,5].slice(0, heroImages[currentImageIndex].rating); track star){
+                <i class="fas fa-star"></i>
+              }
+              @for(star of [1,2,3,4,5].slice(0, 5 - heroImages[currentImageIndex].rating); track star){
+                <i class="far fa-star"></i>
+              }
+            </div>
+            <p>{{heroImages[currentImageIndex].title}}</p>
+            <span>{{heroImages[currentImageIndex].description}}</span>
+          </div>
+          <div class="image-nav-arrows">
+              <button class="arrow-left" (click)="previousImage()"><i class="fas fa-arrow-left"></i></button>
+              <button class="arrow-right" (click)="nextImage()"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Our Services Section -->
+  @if(navTab === 'servicios'){
+    <section class="hero-section services-section">
+      <div class="hero-text">
+        <p class="subtitle">NUESTROS SERVICIOS</p>
+        <h1>Servicios Médicos de Calidad</h1>
+        <p class="description">Ofrecemos una amplia gama de servicios para cuidar de tu salud y la de tu familia.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services">
+          <div class="service-icon"><i [ngClass]="service.icon"></i></div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- About Us Section -->
+  @if(navTab === 'nosotros'){
+    <section class="hero-section about-section">
+      <div class="hero-content-area">
+        <div class="hero-text">
+          <p class="subtitle">SOBRE NOSOTROS</p>
+          <h1>Comprometidos con tu Bienestar</h1>
+          <p class="description">
+            En Meditest, nuestra misión es ofrecer atención médica excepcional con un enfoque humano y personalizado. Contamos con un equipo de profesionales dedicados y la tecnología más avanzada.
+          </p>
+          <ul class="features-list">
+            <li><i class="fas fa-check-circle"></i> Tecnología de Vanguardia</li>
+            <li><i class="fas fa-check-circle"></i> Equipo Médico Certificado</li>
+            <li><i class="fas fa-check-circle"></i> Atención Centrada en el Paciente</li>
+          </ul>
+        </div>
+        <div class="hero-image-container">
+          <img src="assets/imgs/hospital-general-min.jpg" alt="Nuestra clínica" class="hero-main-image">
+        </div>
+      </div>
+    </section>
+  }
+
+
+
+
+
+  <!-- Staff Section -->
+  @if(navTab === 'personal'){
+    <section class="hero-content-area hero-section staff-section">
+      <div class="hero-text">
+        <p class="subtitle">NUESTRO EQUIPO</p>
+        <h1>Profesionales Dedicados a tu Salud</h1>
+        <p class="description">Conoce a los expertos que forman parte de nuestra familia.</p>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-card" *ngFor="let member of staff">
+          <div class="staff-image">
+            <img [src]="member.image" [alt]="member.name">
+          </div>
+          <div class="staff-info">
+            <h4>{{ member.name }}</h4>
+            <p>{{ member.specialty }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if(navTab === 'search'){
+    <app-search [text]="viewSearch"></app-search>
+  }
+
+
+</div>

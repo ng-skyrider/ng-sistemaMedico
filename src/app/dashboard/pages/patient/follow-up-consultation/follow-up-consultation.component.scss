@@ -1,0 +1,241 @@
+/* Styles for follow-up-consultation.component.scss */
+
+.follow-up-consultation-container {
+  font-family: Arial, sans-serif;
+  padding: 15px;
+  background-color: #fff;
+  max-width: 900px; // Adjust as needed for A4-like proportions
+  margin: 20px auto;
+  border: 1px solid #666; // Outer border for the whole form
+
+  .technical-norm-header {
+    text-align: right;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+
+  .technical-norm-subheader {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .form-main-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 5px 0;
+    margin-bottom: 10px;
+
+    .logo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.7rem;
+      text-align: center;
+      img {
+        margin-bottom: 2px;
+      }
+    }
+
+    .form-title-block {
+      text-align: center;
+      flex-grow: 1;
+      .form-title-main {
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      .form-subtitle {
+        font-weight: bold;
+        font-size: 1.3rem; // "CONSULTA" is quite large
+      }
+    }
+
+    .form-identifier-box {
+      border: 2px solid #000;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 5px 15px;
+      min-width: 50px;
+      text-align: center;
+    }
+  }
+
+  .form-content {
+    .section-row,
+    .section-multi-line {
+      display: flex;
+      margin-bottom: -1px; // For overlapping borders
+      align-items: stretch; // Make sure items in a row stretch to the same height
+
+      &.form-row-bordered {
+        border-bottom: 1px solid #333;
+        &:first-child {
+          border-top: 1px solid #333;
+        }
+      }
+    }
+    
+    .section-multi-line {
+        flex-direction: column;
+        label.main-label {
+            padding: 4px 6px;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+            background-color: #f8f8f8; // Slight background for main labels of multi-line sections
+        }
+    }
+
+    .form-group {
+      padding: 4px 6px;
+      border-right: 1px solid #333;
+      display: flex;
+      align-items: center; // Vertically align label and input
+      flex-grow: 0; // Don't grow by default
+      flex-shrink: 0; // Don't shrink by default
+      position: relative; // For potential absolute positioning inside if needed
+
+      &:last-child {
+        border-right: none;
+      }
+
+      label {
+        margin-right: 8px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      input[type='text'],
+      textarea {
+        font-size: 0.8rem;
+        padding: 3px 5px;
+        border: none; // Remove default input border, rely on cell border
+        // border-bottom: 1px dotted #666; // Dotted line for input fields as in image
+        flex-grow: 1; // Allow input to fill space
+        background-color: transparent;
+        &:focus {
+            outline: none;
+            // border-bottom: 1px solid var(--primary-color, #007bff);
+        }
+      }
+      // Specific input sizes - these classes should be on the input itself
+      .form-control-tiny       { width: 60px; flex-grow: 0; }
+      .form-control-tiny-ef    { width: 50px; flex-grow: 0; text-align: center; }
+      .form-control-small      { width: 100px; flex-grow: 0; }
+      .form-control-medium     { width: 180px; flex-grow: 0; }
+      .form-control-large      { width: 250px; flex-grow: 0; }
+      .form-control-full       { width: 100%; flex-grow: 1; }
+    }
+
+    .full-width-group {
+      flex-grow: 1; // Take full width
+    }
+    .flex-1 { flex: 1; }
+    .ml-auto { margin-left: auto; }
+    .mt-1 { margin-top: 0.25rem; } // For stacked inputs in DIAGNOSTICO
+
+    .complex-row .form-group {
+      // Adjust spacing for tightly packed items
+      padding: 4px 3px;
+      label { margin-right: 4px; }
+    }
+
+    .tamizaje-violencia {
+      flex-direction: column;
+      padding: 6px;
+      .tamizaje-question {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+      }
+      input {
+        border: 1px solid #ccc; // Give this specific input a border
+      }
+    }
+
+    .exam-fisico-vitals {
+      .vital-group {
+        label {
+          font-weight: bold;
+        }
+        &:first-child label { // "Examen Fisico" label
+          margin-right: auto; // Pushes other vitals to the right
+        }
+      }
+    }
+    
+    .multi-line-item {
+        border-bottom: 1px solid #ccc; // Line for each item
+        &:last-child {
+            border-bottom: none;
+        }
+        input {
+            width: 100%;
+            padding: 4px 6px;
+        }
+    }
+
+    .with-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        label.main-label { font-weight: bold; font-size: 0.9rem; margin-bottom: 2px; }
+        .label-subtitle { font-size: 0.7rem; color: #555; margin-bottom: 4px;}
+        input { margin-bottom: 2px; border: 1px solid #eee; /* Give these inputs a subtle border */ }
+    }
+
+    .follow-up-details {
+      .left-column {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        .form-group {
+          border-right: none; // No right border for these internal groups
+          width: 100%;
+          input { border-bottom: 1px dotted #666; }
+        }
+      }
+      .right-column.firma-sello {
+        flex: 1;
+        border-left: 1px solid #333;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        label { font-weight: bold; margin-bottom: 5px; }
+        .signature-area { font-size: 0.75rem; margin-bottom: 10px; }
+        .signature-box {
+          width: 80%;
+          height: 50px;
+          border: 1px solid #333;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .form-footer-consultation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #000;
+    padding-top: 8px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+
+    .form-group {
+        border: none;
+        padding: 0;
+        input { border-bottom: 1px solid #000; }
+    }
+    .flex-grow-1 { flex-grow: 1; }
+    .nro-bottom {
+        margin-left: 20px;
+        label { font-weight: bold; }
+    }
+  }
+
+}

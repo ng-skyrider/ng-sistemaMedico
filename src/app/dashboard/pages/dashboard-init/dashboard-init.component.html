@@ -1,0 +1,110 @@
+<div class="dashboard-container">
+    <div class="dashboard-card doctors-availability">
+      <h3>Doctors Availability</h3>
+      <div class="table-responsive">
+        <table class="doctors-table">
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Speciality</th>
+              <th>Availability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Michelle</td>
+              <td>Dental</td>
+              <td><span class="status available">AVAILABLE</span></td>
+            </tr>
+            <tr>
+              <td>Jason</td>
+              <td>Ortho</td>
+              <td><span class="status on-leave">ON LEAVE</span></td>
+            </tr>
+            <tr>
+              <td>David</td>
+              <td>Skin</td>
+              <td><span class="status not-available">NOT AVAILABLE</span></td>
+            </tr>
+            <tr>
+              <td>Angelica</td>
+              <td>Dental</td>
+              <td><span class="status available">AVAILABLE</span></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+      <button>View all</button>
+    </div>
+    <div class="dashboard-card appointments-status">
+      <h3>Appointments Status</h3>
+      <app-donut-chart></app-donut-chart>
+      <div class="chart-legend appointments-legend">
+        <div class="legend-item"><span class="legend-color cancelled"></span>Cancelled <span class="count">2,098</span></div>
+        <div class="legend-item"><span class="legend-color completed"></span>Completed <span class="count">1,002</span></div>
+        <div class="legend-item"><span class="legend-color pending"></span>Pending <span class="count">780</span></div>
+      </div>
+    </div>
+    <div class="dashboard-card death-recovery-rate">
+      <h3>Death & Recovery rate</h3>
+      <app-bar-chart></app-bar-chart>
+      <div class="chart-controls">
+        <div class="time-toggle">
+          <button class="toggle-btn">D</button>
+          <button class="toggle-btn active">W</button>
+          <button class="toggle-btn">M</button>
+        </div>
+      </div>
+      <div class="chart-legend death-recovery-legend">
+        <div class="legend-item"><span class="legend-color recovery-color"></span>Recovery</div>
+        <div class="legend-item"><span class="legend-color death-color"></span>Death</div>
+      </div>
+    </div>
+    <div class="dashboard-card organic-visits">
+      <h3>Organic Visits & Conversions</h3>
+      <div class="visits-data">
+        <div class="data-point">
+          <span class="value">$356</span>
+          <span class="label">Rate</span>
+        </div>
+        <div class="data-point">
+          <span class="value">$198</span>
+          <span class="label">Value</span>
+        </div>
+      </div>
+      <div class="chart-controls bottom-controls">
+        <div class="time-toggle">
+          <button class="toggle-btn">Day</button>
+          <button class="toggle-btn">Week</button>
+          <button class="toggle-btn active">Month</button>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card hospital-rating">
+      <h3>Overall Hospital Rating</h3>
+      <div class="rating-display">
+        <span class="rating-value">4.3</span>
+        <span class="rating-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i> <!-- Assuming half star or empty star based on actual rating -->
+        </span>
+      </div>
+    </div>
+    <div class="dashboard-card users-overview">
+      <h3>Users Overview</h3>
+      <div class="users-data">
+        <div class="data-point">
+          <span class="value">2,025</span>
+          <span class="label">New Patient</span>
+        </div>
+        <div class="data-point">
+          <span class="value">1,254</span>
+          <span class="label">Return Patient</span>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,222 @@
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    // Specific card sizing based on the image layout
+    &.doctors-availability {
+      grid-column: span 12; // Full width on small screens
+      @media (min-width: 992px) { // Medium screens and up
+        grid-column: span 5; // Takes up 5/12 of the grid
+      }
+    }
+  
+    &.appointments-status {
+      grid-column: span 12;
+      @media (min-width: 768px) { // Small screens and up
+        grid-column: span 6;
+      }
+      @media (min-width: 992px) {
+        grid-column: span 4; // Takes up 4/12 of the grid
+      }
+    }
+  
+    &.death-recovery-rate {
+      grid-column: span 12;
+      @media (min-width: 768px) { // Small screens and up
+        grid-column: span 6;
+      }
+      @media (min-width: 992px) {
+        grid-column: span 3; // Takes up 3/12 of the grid
+      }
+    }
+  
+    &.organic-visits,
+    &.hospital-rating,
+    &.users-overview {
+      grid-column: span 12;
+      @media (min-width: 768px) {
+        grid-column: span 6;
+      }
+      @media (min-width: 1200px) { // Large screens and up
+        grid-column: span 4; // Each takes up 4/12 (one-third)
+      }
+    }
+  
+    // Example button styling to match the 'View all' button
+    button {
+      background-color: var(--primary-accent-color, #5D9CEC);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      align-self: flex-start; // For the 'View all' button in doctors-availability
+      margin-top: auto; // Pushes button to the bottom if card content is sparse
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  
+    // Doctors Availability Table
+    .doctors-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+  
+      th, td {
+        text-align: left;
+        padding: 8px 4px;
+        border-bottom: 1px solid #eee;
+      }
+  
+      th {
+        font-weight: 600;
+        color: #555;
+      }
+  
+      .status {
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        &.available {
+          background-color: rgba(131, 212, 117, 0.2); // Light green from donut
+          color: #58A74C;
+        }
+        &.on-leave {
+          background-color: rgba(255, 165, 0, 0.2); // Light orange
+          color: #FFA500;
+        }
+        &.not-available {
+          background-color: rgba(255, 77, 77, 0.2); // Light red
+          color: #FF4D4D;
+        }
+      }
+    }
+  
+    // Chart Legends (common styles)
+    .chart-legend {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        .legend-color {
+          width: 12px;
+          height: 12px;
+          border-radius: 3px;
+          margin-right: 8px;
+        }
+        .count {
+          margin-left: auto;
+          font-weight: 600;
+        }
+      }
+    }
+  
+    .appointments-legend {
+      .cancelled { background-color: #3A86FF; } // Blue
+      .completed { background-color: #6A3E9C; } // Purple
+      .pending { background-color: #83D475; }   // Green
+    }
+  
+    .death-recovery-legend {
+      .recovery-color { background-color: #6A3E9C; } // Purple
+      .death-color { background-color: #3A86FF; }    // Blue
+    }
+  
+    // Chart Controls (time toggle buttons)
+    .chart-controls {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+      &.bottom-controls {
+        margin-top: auto; // Pushes to bottom if card content is sparse
+        margin-bottom: 0;
+      }
+      .time-toggle {
+        display: flex;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        .toggle-btn {
+          background-color: white;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+          font-size: 0.8rem;
+          color: #555;
+          border-left: 1px solid #ddd;
+          &:first-child {
+            border-left: none;
+          }
+          &.active {
+            background-color: var(--primary-color, #007bff); // Use theme primary or fallback
+            color: white;
+          }
+          &:hover:not(.active) {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  
+    // Organic Visits & Users Overview Data Points
+    .visits-data, .users-data {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 10px 0;
+      .data-point {
+        .value {
+          display: block;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--primary-accent-color, #5D9CEC);
+        }
+        .label {
+          font-size: 0.8rem;
+          color: #777;
+        }
+      }
+    }
+  
+    // Hospital Rating
+    .rating-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      .rating-value {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-right: 10px;
+        color: var(--primary-accent-color, #5D9CEC);
+      }
+      .rating-stars {
+        font-size: 1.5rem;
+        color: #FFD700; // Gold for stars
+        i {
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+  

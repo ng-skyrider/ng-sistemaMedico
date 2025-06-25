@@ -1,0 +1,69 @@
+
+.auth-form {
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box; // Ensures padding doesn't affect width
+
+      &:focus {
+        border-color: var(--primary-accent-color);
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(93, 156, 236, 0.25); /* Adjusted box-shadow color */
+      }
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: #ffffff;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-accent-hover-color);
+      border-color: var(--primary-accent-hover-color);
+    }
+  }
+}
+
+.auth-footer {
+  margin-top: 25px;
+  font-size: 14px;
+
+  p {
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  a {
+    color: var(--primary-accent-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

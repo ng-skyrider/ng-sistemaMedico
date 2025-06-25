@@ -1,0 +1,234 @@
+<div class="follow-up-consultation-container consulta-form-container">
+  <div class="technical-norm-header">
+    <span>NTS N° 034-MINSA/DGSP-V02</span>
+  </div>
+  <div class="technical-norm-subheader">
+    NORMA TÉCNICA DE SALUD PARA LA ATENCIÓN INTEGRAL DE SALUD EN LA ETAPA DE VIDA ADOLESCENTE
+  </div>
+
+  <div class="form-main-title-section">
+    <div class="logo-placeholder">
+      <img src="assets/imgs/logo.png" alt="Logo MINSA" style="height: 40px;"/> <!-- Assuming a logo path -->
+      <span>Ministerio de Salud</span>
+    </div>
+    <div class="form-title-block">
+      <div class="form-title-main">FORMATO DE ATENCION INTEGRAL</div>
+      <div class="form-subtitle">CONSULTA</div>
+    </div>
+    <div class="form-identifier-box">
+      4
+    </div>
+  </div>
+
+  <div class="form-content">
+    <!-- Row 1: Fecha, Hora, Edad -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group inline-group">
+        <label for="fecha">FECHA:</label>
+        <input type="text" id="fecha" class="form-control form-control-medium" [(ngModel)]="fecha">
+      </div>
+      <div class="form-group inline-group">
+        <label for="hora">HORA:</label>
+        <input type="text" id="hora" class="form-control form-control-small" [(ngModel)]="hora">
+      </div>
+      <div class="form-group inline-group ml-auto">
+        <label for="edad">Edad:</label>
+        <input type="text" id="edad" class="form-control form-control-small" [(ngModel)]="edad">
+      </div>
+    </div>
+
+    <!-- Row 2: Motivo de consulta -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group full-width-group">
+        <label for="motivoConsulta">Motivo de consulta:</label>
+        <input type="text" id="motivoConsulta" class="form-control form-control-full" [(ngModel)]="motivoConsulta">
+      </div>
+    </div>
+
+    <!-- Row 3: Tiempo de Enfermedad, Forma de Inicio -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group inline-group flex-1">
+        <label for="tiempoEnfermedad">Tiempo de Enfermedad:</label>
+        <input type="text" id="tiempoEnfermedad" class="form-control form-control-large" [(ngModel)]="tiempoEnfermedad">
+      </div>
+      <div class="form-group inline-group flex-1">
+        <label for="formaInicio">Forma de Inicio:</label>
+        <input type="text" id="formaInicio" class="form-control form-control-large" [(ngModel)]="formaInicio">
+      </div>
+    </div>
+
+    <!-- Row 4: Estado de Animo, Sed, Deposiciones, Sueño, Apetito -->
+    <div class="section-row form-row-bordered complex-row">
+      <div class="form-group inline-group">
+        <label for="estadoAnimo">Estado de Animo:</label>
+        <input type="text" id="estadoAnimo" class="form-control form-control-medium" [(ngModel)]="estadoAnimo">
+      </div>
+      <div class="form-group inline-group">
+        <label for="sed">Sed:</label>
+        <input type="text" id="sed" class="form-control form-control-tiny" [(ngModel)]="sed">
+      </div>
+      <div class="form-group inline-group">
+        <label for="deposiciones">Deposiciones:</label>
+        <input type="text" id="deposiciones" class="form-control form-control-medium" [(ngModel)]="deposiciones">
+      </div>
+      <div class="form-group inline-group">
+        <label for="sueño">Sueño:</label>
+        <input type="text" id="sueño" class="form-control form-control-tiny" [(ngModel)]="anamnesisSueno">
+      </div>
+      <div class="form-group inline-group">
+        <label for="apetito">Apetito:</label>
+        <input type="text" id="apetito" class="form-control form-control-tiny" [(ngModel)]="apetito">
+      </div>
+    </div>
+
+    <!-- Row 5: Orina -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group full-width-group">
+        <label for="orina">Orina:</label>
+        <input type="text" id="orina" class="form-control form-control-full" [(ngModel)]="orina">
+      </div>
+    </div>
+
+    <!-- Row 6: Specific Symptoms -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group inline-group flex-1">
+        <label for="fiebreUltimos15Dias">Fiebre en los ultimos 15 dias:</label>
+        <input type="text" id="fiebreUltimos15Dias" class="form-control form-control-medium" [(ngModel)]="fiebreUltimos15Dias">
+      </div>
+      <div class="form-group inline-group flex-1">
+        <label for="tosMas15Dias">Tos más de 15 dias:</label>
+        <input type="text" id="tosMas15Dias" class="form-control form-control-medium" [(ngModel)]="tosMas15Dias">
+      </div>
+    </div>
+    <div class="section-row form-row-bordered">
+      <div class="form-group inline-group flex-1">
+        <label for="secrecionLesionGenitales">Secreción o lesión en genitales:</label>
+        <input type="text" id="secrecionLesionGenitales" class="form-control form-control-medium" [(ngModel)]="secrecionLesionGenitales">
+      </div>
+      <div class="form-group inline-group flex-1">
+        <label for="fechaUltimaRegla">Fecha de ultima regla:</label>
+        <input type="text" id="fechaUltimaRegla" class="form-control form-control-medium" [(ngModel)]="fechaUltimaRegla">
+      </div>
+    </div>
+
+    <!-- Row 7: Tamizaje de violencia -->
+    <div class="section-row form-row-bordered tamizaje-violencia">
+      <p class="tamizaje-question">Tamizaje de violencia (Preguntar: Si alguna vez alguien le insulta, golpea u obliga a hacer algo que no quiere. Observar si presenta alguna evidencia Fisica de maltrato o violencia)</p>
+      <input type="text" class="form-control form-control-full" [(ngModel)]="tamizajeViolenciaObservacion" placeholder="Observaciones...">
+    </div>
+
+    <!-- Row 8: Examen Fisico - Vitals -->
+    <div class="section-row form-row-bordered exam-fisico-vitals">
+      <div class="form-group inline-group vital-group">
+        <label>Examen Fisico</label>
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="temperatura">T°:</label>
+        <input type="text" id="temperatura" class="form-control form-control-tiny-ef" [(ngModel)]="temperatura">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="pa">P.A.:</label>
+        <input type="text" id="pa" class="form-control form-control-tiny-ef" [(ngModel)]="pa">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="fc">FC:</label>
+        <input type="text" id="fc" class="form-control form-control-tiny-ef" [(ngModel)]="fc">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="fr">FR:</label>
+        <input type="text" id="fr" class="form-control form-control-tiny-ef" [(ngModel)]="fr">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="peso">Peso:</label>
+        <input type="text" id="peso" class="form-control form-control-tiny-ef" [(ngModel)]="peso">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="talla">Talla:</label>
+        <input type="text" id="talla" class="form-control form-control-tiny-ef" [(ngModel)]="talla">
+      </div>
+      <div class="form-group inline-group vital-group">
+        <label for="imc">IMC:</label>
+        <input type="text" id="imc" class="form-control form-control-tiny-ef" [(ngModel)]="imc">
+      </div>
+    </div>
+
+    <!-- Row 9: Examen Fisico - Hallazgos (Multiple lines) -->
+    <div class="section-multi-line form-row-bordered">
+      <div *ngFor="let hallazgo of examenFisicoHallazgos; let i = index" class="multi-line-item">
+        <input type="text" class="form-control form-control-full" [(ngModel)]="hallazgo.finding" placeholder="Hallazgo {{i+1}}">
+      </div>
+    </div>
+
+    <!-- Row 10: DIAGNOSTICO -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group full-width-group with-subtitle">
+        <label class="main-label">DIAGNOSTICO</label>
+        <span class="label-subtitle">(Enfermedad o Sindromico, Nutricional desarrollo psicosocial y otros)</span>
+        <input type="text" class="form-control form-control-full" [(ngModel)]="diagnosticoEnfermedadSindrome" placeholder="Enfermedad o Sindrómico">
+        <input type="text" class="form-control form-control-full mt-1" [(ngModel)]="diagnosticoNutricional" placeholder="Nutricional">
+        <input type="text" class="form-control form-control-full mt-1" [(ngModel)]="diagnosticoDesarrolloPsicosocial" placeholder="Desarrollo Psicosocial">
+        <input type="text" class="form-control form-control-full mt-1" [(ngModel)]="diagnosticoOtros" placeholder="Otros">
+      </div>
+    </div>
+
+    <!-- Row 11: TRATAMIENTO (Multiple lines) -->
+    <div class="section-multi-line form-row-bordered">
+      <label class="main-label">TRATAMIENTO</label>
+      <div *ngFor="let item of tratamientoItems; let i = index" class="multi-line-item">
+        <input type="text" class="form-control form-control-full" [(ngModel)]="item.item" placeholder="Tratamiento item {{i+1}}">
+      </div>
+    </div>
+
+    <!-- Row 12: Examenes auxiliares (Multiple lines) -->
+    <div class="section-multi-line form-row-bordered">
+      <label class="main-label">Examenes auxiliares:</label>
+      <div *ngFor="let item of examenesAuxiliaresItems; let i = index" class="multi-line-item">
+        <input type="text" class="form-control form-control-full" [(ngModel)]="item.item" placeholder="Examen auxiliar {{i+1}}">
+      </div>
+    </div>
+
+    <!-- Row 13: Referencia -->
+    <div class="section-row form-row-bordered">
+      <div class="form-group full-width-group">
+        <label for="referenciaMotivo">Referencia (fecha, lugar y motivo):</label>
+        <input type="text" id="referenciaMotivo" class="form-control form-control-full" [(ngModel)]="referenciaMotivo">
+      </div>
+    </div>
+
+    <!-- Row 14: Proxima Cita, Atendido por, Observacion, Firma y Sello -->
+    <div class="section-row form-row-bordered follow-up-details">
+      <div class="left-column">
+        <div class="form-group">
+          <label for="proximaCita">Próxima Cita:</label>
+          <input type="text" id="proximaCita" class="form-control" [(ngModel)]="proximaCita">
+        </div>
+        <div class="form-group">
+          <label for="atendidoPor">Atendido por:</label>
+          <input type="text" id="atendidoPor" class="form-control" [(ngModel)]="atendidoPor">
+        </div>
+        <div class="form-group">
+          <label for="observacion">Observación:</label>
+          <input type="text" id="observacion" class="form-control" [(ngModel)]="observacion">
+        </div>
+      </div>
+      <div class="right-column firma-sello">
+        <label>Firma y Sello</label>
+        <span class="signature-area">(Registro profesional)</span>
+        <div class="signature-box"></div>
+      </div>
+    </div>
+  </div> <!-- end form-content -->
+
+  <!-- Footer: APELLIDOS Y NOMBRES, N° -->
+  <div class="form-footer-consultation">
+    <div class="form-group inline-group flex-grow-1">
+      <label for="apellidosNombres">APELLIDOS Y NOMBRES:</label>
+      <input type="text" id="apellidosNombres" class="form-control form-control-full" [(ngModel)]="apellidosNombres">
+    </div>
+    <div class="form-group inline-group nro-bottom">
+      <label for="nroFormatoBottom">N°</label>
+      <input type="text" id="nroFormatoBottom" class="form-control form-control-medium" [(ngModel)]="nroFormatoBottom">
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,288 @@
+<div class="histories-clinic-container patient-identification-form">
+  <div class="form-header">
+    <div class="logo-container">
+      <!-- Placeholder for logo if any -->
+    </div>
+    <h1 class="form-main-title">FORMATO DE ATENCIÓN INTEGRAL DEL ADOLESCENTE</h1>
+    <div class="form-number-corner">2</div>
+  </div>
+
+    <div class="top-header-section">
+      <div class="form-group date-group">
+        <label>FECHA</label>
+        <input type="text" class="form-control-tiny date-input" placeholder="día">
+        <input type="text" class="form-control-tiny date-input" placeholder="mes">
+        <input type="text" class="form-control-tiny date-input year" placeholder="año">
+      </div>
+      <div class="form-group id-number-group">
+        <label for="formNro">N°</label>
+        <input type="text" id="formNro" class="form-control-medium">
+      </div>
+    </div>
+
+    <div class="datos-generales-title-container">
+      <h2 class="main-section-title-dg">DATOS GENERALES</h2>
+    </div>
+
+    <div class="data-generales-fields">
+      <div class="form-row">
+        <div class="form-group dg-apellidos">
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" class="form-control-full">
+        </div>
+        <div class="form-group dg-nombres">
+          <label for="nombres">Nombres:</label>
+          <input type="text" id="nombres" class="form-control-full">
+        </div>
+        <div class="form-group dg-sexo">
+          <label>Sexo:</label>
+          <div class="checkbox-options">
+            <input type="checkbox" id="sexoM" name="sexo"><label for="sexoM" class="checkbox-label">M</label>
+            <input type="checkbox" id="sexoF" name="sexo"><label for="sexoF" class="checkbox-label">F</label>
+          </div>
+        </div>
+        <div class="form-group dg-edad">
+          <label for="edad">Edad:</label>
+          <input type="text" id="edad" class="form-control-tiny">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group dg-lugarNacimiento">
+          <label for="lugarNacimiento">Lugar de Nacimiento:</label>
+          <input type="text" id="lugarNacimiento" class="form-control-full">
+        </div>
+        <div class="form-group dg-procedencia">
+          <label for="procedencia">Procedencia:</label>
+          <input type="text" id="procedencia" class="form-control-full">
+        </div>
+        <div class="form-group dg-fNac">
+          <label for="fNac">F Nac:</label>
+          <input type="text" id="fNac" class="form-control-tiny">
+        </div>
+      </div>
+
+      <div class="form-row dg-complex-row">
+        <div class="form-group dg-gradoInstruccion">
+          <label for="gradoInstruccion">G° de Instrucción:</label>
+          <input type="text" id="gradoInstruccion" class="form-control-medium">
+        </div>
+        <div class="form-group dg-centroEducativo">
+          <label for="centroEducativo">Centro Educativo:</label>
+          <input type="text" id="centroEducativo" class="form-control-medium">
+        </div>
+        <div class="form-group dg-estadoCivil">
+          <label for="estadoCivil">Estado civil:</label>
+          <input type="text" id="estadoCivil" class="form-control-medium">
+        </div>
+        <div class="form-group dg-ocupacion">
+          <label for="ocupacion">Ocupación:</label>
+          <input type="text" id="ocupacion" class="form-control-medium">
+        </div>
+        <div class="form-group dg-grupoSanguineo">
+          <label for="grupoSanguineo">Grupo sanguíneo:</label>
+          <input type="text" id="grupoSanguineo" class="form-control-tiny">
+        </div>
+        <div class="form-group dg-rh">
+          <label for="rh">Rh:</label>
+          <input type="text" id="rh" class="form-control-tiny-rh">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group dg-acompanante">
+          <label for="acompanante">Acompañante:</label>
+          <input type="text" id="acompanante" class="form-control-full">
+        </div>
+      </div>
+    </div>
+
+  <div class="antecedentes-container">
+    <div class="antecedentes-column">
+      <h2 class="section-title">ANTECEDENTE PERSONALES</h2>
+      <table class="clinic-table antecedentes-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th colspan="3" class="text-center">normales</th>
+            <th>ANTECEDENTE</th>
+            <th class="text-center">Si</th>
+            <th class="text-center">No</th>
+            <th class="text-center">No Sabe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PERINATALES</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            <td>TBC</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>CRECIMIENTO</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            <td>SOBA/ASMA</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>DESARROLLO</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            <td>TRANSF. SANGUINEAS</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td rowspan="4">VACUNAS</td>
+            <td colspan="3" class="vacunas-header">DOSIS / FECHA</td>
+            <td>USO DE MEDICINAS</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+          <tr><td>DT</td><td>P <input type="checkbox"></td><td>1° <input type="checkbox"></td><td>2° <input type="checkbox"></td><td>3° <input type="checkbox"></td><td>CONSUMO DE DROGAS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>SR</td><td>P <input type="checkbox"></td><td>1° <input type="checkbox"></td><td>2° <input type="checkbox"></td><td>3° <input type="checkbox"></td><td>INTERVEN. QUIRURGICAS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>HB</td><td>P <input type="checkbox"></td><td>1° <input type="checkbox"></td><td>2° <input type="checkbox"></td><td>3° <input type="checkbox"></td><td>ALERGIAS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>FA</td><td>P <input type="checkbox"></td><td>1° <input type="checkbox"></td><td>2° <input type="checkbox"></td><td>3° <input type="checkbox"></td><td>ACCIDENTES</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr>
+            <td colspan="4"></td>
+            <td>TRASTORNOS PSICOLOGICOS</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td>HOSPITALIZACIONES</td>
+            <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="antecedentes-column">
+      <h2 class="section-title">ANTECEDENTE FAMILIARES</h2>
+      <table class="clinic-table antecedentes-table">
+        <thead>
+          <tr>
+            <th>ANTECEDENTE</th>
+            <th class="text-center">Si</th><th class="text-center">No</th><th class="text-center">No Sabe</th>
+            <th>VIVE CON</th>
+            <th class="text-center">Si</th><th class="text-center">No</th><th class="text-center">No Sabe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>TBC</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>MADRE</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>OBESIDAD</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>PADRE</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>VIH/SIDA</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>HERMANOS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>HIPERTENSION ARTERIAL</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>HIJOS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>DIABETES</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>PAREJAS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>HIPERLIPIDEMIA</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>OTROS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>INFARTO</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>REFERENTE ADULTO</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+          <tr><td>TRASTORNO PSICOLOGICO</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td rowspan="4">INSTRUCCIÓN</td><td class="text-center">P</td><td class="text-center">M</td><td></td></tr>
+          <tr><td>DROGAS</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>ANALFABETO</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td></td></tr>
+          <tr><td>VIOLENCIA INTRAFAMILIAR</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>PRIMARIA</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td></td></tr>
+          <tr><td>MADRE ADOLESCENTE</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>SECUNDARIA</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td></td></tr>
+          <tr><td>MALTRATO</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>SUPERIOR</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td></td></tr>
+          <tr><td>OTROS</td><td><input type="text" class="form-control-full" colspan="3"></td><td colspan="4"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="section-title">ANTECEDENTE PSICOSOCIALES</h2>
+  <div class="form-section psicosociales-grid">
+    <div class="psicosocial-category">
+      <h3 class="subsection-title">EDUCATIVOS</h3>
+      <div class="form-group checkbox-row"><label>ESTUDIA?</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>DE ACUERDO A LA EDAD?</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group"><label>NIVEL:</label>
+        <div><input type="checkbox"><label>NO ESCOLARIZADO</label><input type="checkbox"><label>PRIMARIA</label></div>
+        <div><input type="checkbox"><label>SECUNDARIA</label><input type="checkbox"><label>SUPERIOR</label></div>
+      </div>
+      <div class="form-group checkbox-row"><label>BAJO RENDIMIENTO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>DESERCION</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>REPITENCIA</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+    </div>
+    <div class="psicosocial-category">
+      <h3 class="subsection-title">LABORALES</h3>
+      <div class="form-group checkbox-row"><label>TRABAJA?</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>REMUNERADO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>ESTABLE</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>TIEMPO COMPLETO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group"><label for="edadInicioTrabajo">EDAD INICIO TRABAJO</label><input type="text" id="edadInicioTrabajo" class="form-control-small"></div>
+      <div class="form-group"><label for="tipoTrabajo">TIPO DE TRABAJO</label><input type="text" id="tipoTrabajo" class="form-control-full"></div>
+    </div>
+    <div class="psicosocial-category">
+      <h3 class="subsection-title">VIDA SOCIAL</h3>
+      <div class="form-group checkbox-row"><label>ERES ACEPTADO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>ERES IGNORADO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>ERES RECHAZADO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>TIENES AMIGOS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>TIENES PAREJA</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>PRACTICAS DEPORTES</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>ORGANIZAC. JUVENILES</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+    </div>
+    <div class="psicosocial-category">
+      <h3 class="subsection-title">HABITOS</h3>
+      <div class="form-group checkbox-row"><label>EJERCICIOS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>TABACO</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>ALCOHOL</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>DROGAS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group checkbox-row"><label>CONDUCE VEHIC.</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      <div class="form-group"><label for="televisionHoras">TELEVISION (Horas/dia)</label><input type="text" id="televisionHoras" class="form-control-small"></div>
+      <div class="form-group"><label for="videoJuegosHoras">VIDEO JUEGOS (Horas/dia)</label><input type="text" id="videoJuegosHoras" class="form-control-small"></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3 class="subsection-title">SALUD SEXUAL Y REPRODUCTIVA</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="menarquia">MENARQUIA / ESPERMARQUIA (Años)</label>
+        <input type="text" id="menarquia" class="form-control-small">
+      </div>
+      <div class="form-group">
+        <label for="edadInicioRelacion">EDAD INICIO RELACION SEXUAL (Años)</label>
+        <input type="text" id="edadInicioRelacion" class="form-control-small">
+      </div>
+      <div class="checkbox-column-group">
+        <div class="form-group checkbox-row"><label>ABUSO SEXUAL</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+        <div class="form-group checkbox-row"><label>EMBARAZOS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+        <div class="form-group checkbox-row"><label>HIJOS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+        <div class="form-group checkbox-row"><label>ABORTOS</label><div><input type="checkbox"><label>Si</label><input type="checkbox"><label>No</label></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3 class="subsection-title">OBSERVACIONES</h3>
+    <textarea class="form-control-full" rows="3"></textarea>
+  </div>
+
+  <div class="form-section">
+    <h3 class="subsection-title">SALUD BUCAL</h3>
+    <table class="clinic-table salud-bucal-table">
+      <thead>
+        <tr>
+          <th></th><th>Sano</th><th>Enfermo</th><th></th><th>Sano</th><th>Enfermo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Labios</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>Encía</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+        <tr><td>Carrillos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>Lengua</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+        <tr><td>Paladar</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td colspan="3"></td></tr>
+        <tr><td colspan="6">&nbsp;</td></tr> 
+        <tr><th>Estado clínico de higiene dental</th><td colspan="2"><input type="checkbox"><label>Buena</label><input type="checkbox"><label>Regular</label><input type="checkbox"><label>Mala</label></td><th>Caries Dental</th><td colspan="2"><input type="checkbox"><label>No</label><input type="checkbox"><label>Si</label></td></tr>
+        <tr><th>Urgencia tratamiento</th><td colspan="2"><input type="checkbox"><label>No</label><input type="checkbox"><label>Si</label></td><td colspan="3"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-footer">
+    <div class="form-group">
+      <label for="apellidosNombreFirma">APELLIDOS Y NOMBRE:</label>
+      <input type="text" id="apellidosNombreFirma" class="form-control-full">
+    </div>
+    <div class="form-info">
+      <span>FORMATO 2</span>
+      <span>N° <input type="text" class="form-control-small"></span>
+    </div>
+  </div>
+
+</div>
+

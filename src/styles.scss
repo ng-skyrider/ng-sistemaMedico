@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: #eef2f7; /* Consistent light blue-gray background */
+  color: #333; /* Default text color */
+  // overflow-y: hidden;
+}
+
+/* Reset mejorado */
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #212121;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+/* Optional: Define a root variable for the primary accent color if you plan to use it in many places */
+:root {
+  --primary-accent-color: #5D9CEC; /* Softer blue */
+  --primary-accent-hover-color: #4A8AD8; /* Slightly darker for hover */
+}
+
+
+/* Flexbox */
+.flex {
+  display: flex;
+
+  flex-wrap: wrap;
+}

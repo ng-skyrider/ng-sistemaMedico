@@ -1,0 +1,27 @@
+.dashboard-layout-wrapper {
+  display: flex;
+  height: 100vh; // Ensure full viewport height
+  background-color: #f4f7fa; // A light background for the page behind cards
+  overflow: hidden;
+}
+
+.dashboard-main-content {
+  flex-grow: 1;
+  overflow-y: auto; // Allow scrolling for content if it overflows
+  padding: 20px; // Add some padding around the card container
+
+}
+
+:host {
+  display: block;
+  padding: 20px;
+  background-color: var(--background-color, #eef2f7); // Use variable from styles.scss or fallback
+
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); // 12-column grid
+  gap: 20px;
+  width: 100%;
+}

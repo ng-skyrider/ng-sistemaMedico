@@ -1,0 +1,141 @@
+<div class="histories-clinic-container">
+  <!-- Tab Navigation (Simplified for now, can be enhanced later) -->
+  <div class="tabs-nav">
+    <button (click)="selectTab('tab1')" [class.active]="activeTab === 'tab1'">
+      Listado de problemas y plan de atención Integral
+    </button>
+    <!-- Add other tab buttons here as needed -->
+    <!-- e.g., <button (click)="selectTab('tab2')" [class.active]="activeTab === 'tab2'">Tab 2</button> -->
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- Tab 1: Listado de problemas y plan de atención Integral -->
+    <div *ngIf="activeTab === 'tab1'" class="tab-pane active">
+      <h2 class="section-title">LISTA DE PROBLEMAS</h2>
+
+      <div class="problem-section">
+        <div class="subsection-header">
+          <h3 class="subsection-title">PROBLEMA CRÓNICOS</h3>
+          <button type="button" class="btn-add-row" (click)="addChronicProblemRow()" title="Agregar nueva fila">+</button>
+        </div>
+        <table class="clinic-table">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>FECHA</th>
+              <th>PROBLEMA CRÓNICOS</th>
+              <th>INACTIVO</th>
+              <th>OBSERVACIÓN</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let problem of chronicProblems; let i = index">
+              <td>{{problem.numero}}</td>
+              <td><input type="date" class="form-control-small" [(ngModel)]="problem.fecha" name="fecha_{{i}}"></td>
+              <td><input type="text" class="form-control-full" [(ngModel)]="problem.problema" name="problema_{{i}}"></td>
+              <td><input type="checkbox" [(ngModel)]="problem.inactivo" name="inactivo_{{i}}"></td>
+              <td><input type="text" class="form-control-full" [(ngModel)]="problem.observacion" name="observacion_{{i}}"></td>
+              <td class="actions-cell">
+                <button type="button" class="btn-remove-row" (click)="removeChronicProblemRow(i)" title="Eliminar fila" *ngIf="chronicProblems.length > 1">-</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="problem-section">
+        <div class="subsection-header">
+          <h3 class="subsection-title">PROBLEMAS AGUDOS</h3>
+          <button type="button" class="btn-add-row" (click)="addAcuteProblemRow()" title="Agregar nueva fila">+</button>
+        </div>
+        <table class="clinic-table">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>PROBLEMAS AGUDOS</th>
+              <th>FECHA</th>
+              <th>FECHA</th>
+              <th>FECHA</th>
+              <th>OBSERVACIÓN</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let problem of acuteProblems; let i = index">
+              <td>{{problem.numero}}</td>
+              <td><input type="text" class="form-control-full" [(ngModel)]="problem.problema" name="acute_problema_{{i}}"></td>
+              <td><input type="date" class="form-control-small" [(ngModel)]="problem.fecha1" name="acute_fecha1_{{i}}"></td>
+              <td><input type="date" class="form-control-small" [(ngModel)]="problem.fecha2" name="acute_fecha2_{{i}}"></td>
+              <td><input type="date" class="form-control-small" [(ngModel)]="problem.fecha3" name="acute_fecha3_{{i}}"></td>
+              <td><input type="text" class="form-control-full" [(ngModel)]="problem.observacion" name="acute_observacion_{{i}}"></td>
+              <td class="actions-cell">
+                <button type="button" class="btn-remove-row" (click)="removeAcuteProblemRow(i)" title="Eliminar fila" *ngIf="acuteProblems.length > 1">-</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title plan-title">PLAN DE ATENCIÓN INTEGRAL</h2>
+      <table class="clinic-table attention-plan-table">
+        <thead>
+          <tr>
+            <th rowspan="2" style="width: 2%; vertical-align: middle;">N°</th>
+            <th rowspan="2" style="width: 25%; vertical-align: middle;">PLAN</th>
+            <th colspan="3" style="width: 45%; text-align: center;">DESCRIPCIÓN</th>
+            <th colspan="3" style="width: 18%; text-align: center;">FECHA</th>
+            <th rowspan="2" style="width: 15%; vertical-align: middle;">LUGAR</th>
+          </tr>
+          <tr>
+            <th colspan="3"></th> <!-- Placeholder para DESCRIPCIÓN -->
+            <th style="text-align: center;">Día</th>
+            <th style="text-align: center;">Mes</th>
+            <th style="text-align: center;">Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of attentionPlanItems; let i = index">
+            <td>{{item.planNumber}}</td>
+            <td>{{item.plan}}</td>
+            <td colspan="3" >
+              <textarea class="form-control-full" [(ngModel)]="item.descripcion" name="descripcion_{{i}}"></textarea>
+            </td>
+            <td>
+              <input type="text" class="form-control-small" [(ngModel)]="item.fecha1_dia" name="f1_dia_{{i}}" maxlength="2" placeholder="DD">
+            </td>
+            <td>
+              <input type="text" class="form-control-small" [(ngModel)]="item.fecha1_mes" name="f1_mes_{{i}}" maxlength="2" placeholder="MM">
+            </td>
+            <td>
+              <input type="text" class="form-control-small year" [(ngModel)]="item.fecha1_ano" name="f1_ano_{{i}}" maxlength="4" placeholder="AAAA">
+            </td>
+            <td>
+              <input type="text" class="form-control-small" [(ngModel)]="item.lugar" name="lugar_{{i}}">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="form-footer">
+        <div>
+          <label>APELLIDOS Y NOMBRE:</label>
+          <input type="text" class="form-control-large">
+        </div>
+        <div>
+          <label>N°:</label>
+          <input type="text" class="form-control-medium">
+        </div>
+        <div class="format-label">
+          FORMATO 1
+        </div>
+      </div>
+
+    </div> <!-- /tab-pane active -->
+
+    <!-- Add other tab panes here -->
+    <!-- <div *ngIf="activeTab === 'tab2'" class="tab-pane"> Tab 2 Content </div> -->
+
+  </div> <!-- /tab-content -->
+</div> <!-- /histories-clinic-container -->

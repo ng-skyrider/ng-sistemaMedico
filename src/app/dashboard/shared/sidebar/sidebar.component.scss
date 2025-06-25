@@ -1,0 +1,189 @@
+:host {
+  --sidebar-bg: #ffffff;
+  --sidebar-text-color: #5F6A7A; // A muted text color from image
+  --sidebar-active-link-bg: #E3F2FD; // Light blue for active link background
+  --sidebar-active-link-text: #0D47A1; // Darker blue for active link text (like 'Medical Chart')
+  --sidebar-hover-bg: #f0f4f8;
+  --sidebar-border-color: #e0e0e0;
+  --profile-name-color: #333333;
+  --profile-hospital-color: #777777;
+  --logo-text-color: #0D47A1; // Dark blue for DoctorDash text
+  --icon-color: #757575;
+  --active-icon-color: #0D47A1;
+}
+
+.sidebar-container {
+  width: 260px;
+  height: 95vh;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border-color);
+  border-bottom: 1px solid var(--sidebar-border-color);
+  display: flex;
+  flex-direction: column;
+  color: var(--sidebar-text-color);
+  font-family: 'Poppins', sans-serif; // Assuming Poppins or similar modern font
+  transition: width 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--sidebar-border-color);
+  .logo {
+    height: 35px;
+    margin-right: 10px;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--logo-text-color);
+  }
+}
+
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--sidebar-border-color);
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    .doctor-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--profile-name-color);
+    }
+    .hospital-name {
+      font-size: 0.8rem;
+      color: var(--profile-hospital-color);
+    }
+  }
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  padding: 15px 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        padding: 12px 25px;
+        text-decoration: none;
+        color: var(--sidebar-text-color);
+        font-size: 0.9rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-left: 3px solid transparent;
+
+        i {
+          margin-right: 15px;
+          font-size: 1.1rem;
+          width: 20px; // Ensure icons align
+          text-align: center;
+          color: var(--icon-color);
+        }
+
+        &:hover {
+          background-color: var(--sidebar-hover-bg);
+          color: var(--sidebar-active-link-text);
+          border-left-color: var(--sidebar-active-link-text);
+          i { color: var(--active-icon-color); }
+        }
+
+        &.active-link {
+          background-color: var(--sidebar-active-link-bg);
+          color: var(--sidebar-active-link-text);
+          font-weight: 500;
+          border-left-color: var(--sidebar-active-link-text);
+          i { color: var(--active-icon-color); }
+        }
+      }
+
+      &.has-submenu {
+        a {
+          position: relative;
+          cursor: pointer;
+          .submenu-arrow {
+            margin-left: auto;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+          }
+        }
+        &.open > a .submenu-arrow {
+          transform: rotate(180deg);
+        }
+        &.open > a, a.active-parent {
+            background-color: var(--sidebar-hover-bg);
+            color: var(--sidebar-active-link-text);
+            font-weight: 500;
+            i { color: var(--active-icon-color); }
+        }
+      }
+
+      .submenu {
+        list-style: none;
+        padding-left: 0; // Remove default padding
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #f8f9fa; // Slightly different background for submenu
+
+        &.show {
+          max-height: 500px; // Adjust as needed for number of items
+        }
+
+        li a {
+          padding-left: 53px; // Indent submenu items (icon width + margin + border + extra)
+          font-size: 0.85rem;
+          border-left: none; // No border for submenu items
+          &:hover {
+            border-left: none;
+          }
+          &.active-link {
+            font-weight: 600;
+            color: var(--sidebar-active-link-text);
+            background-color: var(--sidebar-active-link-bg);
+            border-left: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar-toggle {
+  padding: 15px 25px;
+  border-top: 1px solid var(--sidebar-border-color);
+  display: flex;
+  justify-content: flex-end;
+  .toggle-btn {
+    background-color: #FF9800; // Orange color from image
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    i {
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: #FB8C00; // Darker orange
+    }
+  }
+}

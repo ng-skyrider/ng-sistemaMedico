@@ -1,0 +1,60 @@
+<div class="sidebar-container">
+  <div class="sidebar-header">
+    <img src="assets/imgs/logo.png" alt="DoctorDash Logo" class="logo">
+    <span class="logo-text">SystemCure</span>
+  </div>
+
+  <div class="doctor-profile">
+    <img src="assets/imgs/doctor-avatar.jpg" alt="Dr. Ana Setiawan" class="profile-pic">
+    <div class="profile-info">
+      <span class="doctor-name">Tec. Ana Setiawan</span>
+      <span class="hospital-name">Hospital Central</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a 
+        routerLink="/dashboard/home" 
+        routerLinkActive="active-link">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </a>
+      </li>
+      <li class="has-submenu" [class.open]="isPatientMenuOpen">
+        <a (click)="togglePatientMenu()" [class.active-parent]="isPatientMenuOpen"> 
+          <i class="fas fa-user-injured"></i>
+          <span>Historial clínico</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </a>
+        <ul class="submenu" [class.show]="isPatientMenuOpen">
+          <li><a routerLink="/dashboard/historiesClinic" routerLinkActive="active-link">Listado deProblemas & PAI</a></li>
+          <li><a routerLink="/dashboard/patientIdentification" routerLinkActive="active-link">Identificación del Paciente</a></li>
+          <li><a routerLink="/dashboard/riskFactorsMonitoring" routerLinkActive="active-link">Seguimiento de factores de riesgo</a></li>
+          <li><a routerLink="/dashboard/followUpConsultation" routerLinkActive="active-link">Seguimiento de Consultas</a></li>
+          
+          <li><a routerLink="/dashboard/historiesClinicExport" routerLinkActive="active-link">Exportar</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu" [class.open]="isPersonalSaludMenuOpen">
+        <a (click)="togglePersonalSaludMenu()" [class.active-parent]="isPersonalSaludMenuOpen"> 
+          <i class="fas fa-user-md"></i>
+          <span>Personal de Salud</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </a>
+        <ul class="submenu" [class.show]="isPersonalSaludMenuOpen">
+          <li><a routerLink="/dashboard/ConsolidadoInformacionR" routerLinkActive="active-link">Consolidado de informacion necesaria</a></li>
+          <li><a routerLink="/dashboard/personalSaludExport" routerLinkActive="active-link">Exportar</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-toggle">
+    <button class="toggle-btn">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </div>
+</div>
+

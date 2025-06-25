@@ -1,0 +1,75 @@
+{
+  "listado_microrganismos": [
+    {
+      "id": 1,
+      "agrupacion": "Cocos Gram Positivos",
+      "microorganismos": [
+        {"id": 1, "nombre": "Staphylococcus aureus", "abreviatura": "SAU"},
+        {"id": 2, "nombre": "Staphylococcus epidermidis", "abreviatura": "SEP"},
+        {"id": 3, "nombre": "Staphylococcus saprophyticus", "abreviatura": "SAP"},
+        {"id": 4, "nombre": "Staphylococcus coagulase-negative", "abreviatura": "SCN"},
+        {"id": 5, "nombre": "Staphylococcus spp", "abreviatura": "STA"},
+        {"id": 6, "nombre": "Enterococcus faecalis", "abreviatura": "EFA"},
+        {"id": 7, "nombre": "Enterococcus faecium", "abreviatura": "EFM"},
+        {"id": 8, "nombre": "Enterococcus spp. Otros", "abreviatura": "ENT"}
+      ]
+    },
+    {
+      "id": 2,
+      "agrupacion": "Bacilos Gram Positivos",
+      "microorganismos": [
+        {"id": 9, "nombre": "Listeria monocytogenes", "abreviatura": "LMO"},
+        {"id": 10, "nombre": "Escherichia coli", "abreviatura": "ECO"},
+        {"id": 11, "nombre": "Enterobacter cloacae", "abreviatura": "ECL"},
+        {"id": 12, "nombre": "Enterobacter aerogenes", "abreviatura": "EAE"},
+        {"id": 13, "nombre": "Enterobacter spp.", "abreviatura": "EN"},
+        {"id": 14, "nombre": "Klebsiella pneumoniae", "abreviatura": "KPN"},
+        {"id": 15, "nombre": "Klebsiella spp", "abreviatura": "KL"},
+        {"id": 16, "nombre": "Klebsiella oxytoca", "abreviatura": "KOX"},
+        {"id": 17, "nombre": "Morganella morganii", "abreviatura": "MMO"},
+        {"id": 18, "nombre": "Proteus mirabilis", "abreviatura": "PMI"},
+        {"id": 19, "nombre": "Proteus spp", "abreviatura": "PR"},
+        {"id": 20, "nombre": "Otras enterobacterias", "abreviatura": "otras enterobacterias"}
+      ]
+    },
+    {
+      "id": 3,
+      "agrupacion": "Bacilos Gram Negativos No Fermentadores",
+      "microorganismos": [
+        {"id": 21, "nombre": "Pseudomonas aeruginosa", "abreviatura": "PAE"},
+        {"id": 22, "nombre": "Pseudomonas spp", "abreviatura": "PS"},
+        {"id": 23, "nombre": "Acinetobacter baumannii", "abreviatura": "ABA"},
+        {"id": 24, "nombre": "Acinetobacter calcoaceticus", "abreviatura": "ACA"},
+        {"id": 25, "nombre": "Acinetobacter spp", "abreviatura": "AC"},
+        {"id": 26, "nombre": "Stenotrophomonas maltophilia", "abreviatura": "PMIA"},
+        {"id": 27, "nombre": "Otras pseudomonas no fermentadores", "abreviatura": "otros no fermentadores"}
+      ]
+    },
+    {
+      "id": 4,
+      "agrupacion": "Levaduras y Otros Hongos Unicelulares",
+      "microorganismos": [
+        {"id": 28, "nombre": "Candida albicans", "abreviatura": "CAL"},
+        {"id": 29, "nombre": "Candida non albicans", "abreviatura": "CXA"},
+        {"id": 30, "nombre": "Cryptococcus neoformans", "abreviatura": "CNE"},
+        {"id": 31, "nombre": "Otras levaduras", "abreviatura": "otras levaduras"}
+      ]
+    },
+    {
+      "id": 5,
+      "agrupacion": "Hongos Filamentosos",
+      "microorganismos": [
+        {"id": 32, "nombre": "Aspergillus fumigatus", "abreviatura": "AFU"},
+        {"id": 33, "nombre": "Aspergillus flavus", "abreviatura": "AFL"},
+        {"id": 34, "nombre": "Aspergillus niger", "abreviatura": "ANI"},
+        {"id": 35, "nombre": "Aspergillus niger spp", "abreviatura": "ASP"},
+        {"id": 36, "nombre": "Otros hongos filamentosos", "abreviatura": "otros hongos filamentosos"}
+      ]
+    },
+    {
+      "id": 6,
+      "agrupacion": "Otros Microorganismos no incluidos en el listado",
+      "microorganismos": []
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<div class="risk-monitoring-container">
+  <div class="form-main-header">
+    <div class="form-title-main">FORMATO DE ATENCIÓN INTEGRAL DEL ADOLESCENTE</div>
+    <div class="form-identifier">3 - a</div>
+  </div>
+  <div class="form-subtitle-header">
+    SEGUIMIENTO DE LA PROVISIÓN DE CUIDADOS PREVENTIVOS PROMOCIONALES - SEGUIMIENTO DE RIESGO
+  </div>
+
+  <table class="risk-monitoring-table clinic-table">
+    <thead>
+      <tr>
+        <th class="description-column"></th>
+        <th class="value-column">1</th>
+        <th class="value-column">2</th>
+        <th class="value-column">3</th>
+        <th class="value-column">4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- EVALUACIÓN NUTRICIONAL -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">EVALUACIÓN NUTRICIONAL</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionNutricionalFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionNutricionalFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionNutricionalFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionNutricionalFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of evaluacionNutricional">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+
+      <!-- EVALUACIÓN DEL DESARROLLO SEXUAL SEGÚN TANNER -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">EVALUACIÓN DEL DESARROLLO SEXUAL SEGÚN TANNER</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="desarrolloSexualFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="desarrolloSexualFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="desarrolloSexualFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="desarrolloSexualFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of desarrolloSexual">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+
+      <!-- EVALUACIÓN POSTURAL -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">EVALUACIÓN POSTURAL</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionPosturalFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionPosturalFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionPosturalFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="evaluacionPosturalFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of evaluacionPostural">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+
+      <!-- EVALUACIÓN DE LA AGUDEZA VISUAL Y AGUDEZA AUDITIVA -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">EVALUACIÓN DE LA AGUDEZA VISUAL Y AGUDEZA AUDITIVA</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="agudezaVisualAuditivaFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="agudezaVisualAuditivaFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="agudezaVisualAuditivaFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="agudezaVisualAuditivaFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of agudezaVisualAuditiva">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+
+      <!-- DESCARTE DE ENFERMEDADES NO TRANSMISIBLES -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">DESCARTE DE ENFERMEDADES NO TRANSMISIBLES</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="descarteEnfermedadesFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="descarteEnfermedadesFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="descarteEnfermedadesFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="descarteEnfermedadesFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of descarteEnfermedades">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+
+      <!-- EVALUACIÓN Y ATENCIÓN DE HABILIDADES SOCIALES -->
+      <tr class="section-title-row">
+        <td class="section-title-cell" colspan="5">EVALUACIÓN Y ATENCIÓN DE HABILIDADES SOCIALES</td>
+      </tr>
+      <tr class="fecha-row">
+        <td>FECHA</td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="habilidadesSocialesFecha1"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="habilidadesSocialesFecha2"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="habilidadesSocialesFecha3"></td>
+        <td><input type="text" class="form-control-tiny" [(ngModel)]="habilidadesSocialesFecha4"></td>
+      </tr>
+      <tr *ngFor="let entry of habilidadesSociales">
+        <td>{{ entry.item }}</td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor1"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor2"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor3"></td>
+        <td><input type="text" class="form-control-small" [(ngModel)]="entry.valor4"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="form-footer-risk">
+    <div class="form-group">
+      <label for="apellidosNombres">APELLIDOS Y NOMBRES:</label>
+      <input type="text" id="apellidosNombres" class="form-control-full" [(ngModel)]="apellidosNombres">
+    </div>
+    <div class="form-group nro-format-group">
+      <label for="nroFormato">N°</label>
+      <input type="text" id="nroFormato" class="form-control-medium" [(ngModel)]="nroFormato">
+    </div>
+    <div class="format-label">
+      FORMATO 3
+    </div>
+  </div>
+</div>
