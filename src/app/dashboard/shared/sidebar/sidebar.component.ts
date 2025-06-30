@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 export class SidebarComponent {
   isPatientMenuOpen = false;
   isPersonalSaludMenuOpen = false;
+  isRegistrarUsuarios = false;
+  isConfiguracion = false;
 
   togglePatientMenu() {
     this.isPatientMenuOpen = !this.isPatientMenuOpen;
@@ -19,5 +21,13 @@ export class SidebarComponent {
 
   togglePersonalSaludMenu() {
     this.isPersonalSaludMenuOpen = !this.isPersonalSaludMenuOpen;
+  }
+
+  toggleRegistrarUsuarios() {
+    this.isRegistrarUsuarios = !this.isRegistrarUsuarios;
+  }
+
+  toggleConfiguracion() {
+    this.isConfiguracion = !this.isConfiguracion;
   }
 }

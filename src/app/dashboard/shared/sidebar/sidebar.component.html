@@ -22,7 +22,28 @@
           <span>Inicio</span>
         </a>
       </li>
-      <li class="has-submenu" [class.open]="isPatientMenuOpen">
+      <li class="has-submenu" [class.open]="isRegistrarUsuarios">
+        <a (click)="toggleRegistrarUsuarios()" [class.active-parent]="isRegistrarUsuarios">
+          <i class="fas fa-user"></i>
+          <span>Usuarios</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </a>
+        <ul class="submenu" [class.show]="isRegistrarUsuarios">
+          <li><a routerLink="/dashboard/RegistrarUsuarios" routerLinkActive="active-link"> <i class="fa-regular fa-user"></i> Registrar Usuarios</a></li>
+          <li><a routerLink="/dashboard/RegistrarPacientes" routerLinkActive="active-link"> <i class="fa-regular fa-user"></i> Registrar Pacientes</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu" [class.open]="isConfiguracion">
+        <a (click)="toggleConfiguracion()" [class.active-parent]="isConfiguracion">
+          <i class="fas fa-user-injured"></i>
+          <span>Configuración</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </a>
+        <ul class="submenu" [class.show]="isConfiguracion">
+          <li><a routerLink="/dashboard/ConfigurarVigilanciaEpidemiologica" routerLinkActive="active-link"> C. Vigilancia Epidemiológica</a></li>
+        </ul>
+      </li>
+      <!-- <li class="has-submenu" [class.open]="isPatientMenuOpen">
         <a (click)="togglePatientMenu()" [class.active-parent]="isPatientMenuOpen"> 
           <i class="fas fa-user-injured"></i>
           <span>Historial clínico</span>
@@ -36,7 +57,7 @@
           
           <li><a routerLink="/dashboard/historiesClinicExport" routerLinkActive="active-link">Exportar</a></li>
         </ul>
-      </li>
+      </li> -->
       <li class="has-submenu" [class.open]="isPersonalSaludMenuOpen">
         <a (click)="togglePersonalSaludMenu()" [class.active-parent]="isPersonalSaludMenuOpen"> 
           <i class="fas fa-user-md"></i>
@@ -44,6 +65,7 @@
           <i class="fas fa-chevron-down submenu-arrow"></i>
         </a>
         <ul class="submenu" [class.show]="isPersonalSaludMenuOpen">
+          <li><a routerLink="/dashboard/SeguimientoPacientesFactorR" routerLinkActive="active-link">Seguimiento de Pacientes factores de riesgo</a></li>
           <li><a routerLink="/dashboard/ConsolidadoInformacionR" routerLinkActive="active-link">Consolidado de informacion necesaria</a></li>
           <li><a routerLink="/dashboard/personalSaludExport" routerLinkActive="active-link">Exportar</a></li>
         </ul>

@@ -8,7 +8,7 @@ import { SupabaseService } from './supabase/supabase.service';
 export class AuthService {
 
   
-  login = signal<any | null>(null);
+  usuario = signal<any | null>(null);
 
   private supabaseS = inject(SupabaseService);
   private supabase = computed<SupabaseClient>(()=> this.supabaseS.getClient());
@@ -28,14 +28,39 @@ export class AuthService {
     }
 
     if (data.session) {
-      this.login.set(data.session.user);
+      this.usuario.set(data.session.user);
       localStorage.setItem('x-token', data.session.access_token);
       localStorage.setItem('email', data.session.user.email ? data.session.user.email : '');
-      console.log("token (1hours): " + data.session.access_token);
+     
     } else {
       // Handle cases where there's no error but also no session
       throw new Error('Login failed: No session data received.');
     }
+  }
+
+  async onRegister(email: string, pass: string){
+    const { data, error } = await this.supabase().auth.signUp({
+      email: email,
+      password: pass
+    });
+
+    if (error) {
+      // This will reject the promise and be caught by the component
+      throw error;
+    }
+
+    return data;
+  }
+
+  async onLogout(){
+    const { error } = await this.supabase().auth.signOut();
+    if (error) {
+      // This will reject the promise and be caught by the component
+      throw error;
+    }
+    this.usuario.set(null);
+    localStorage.removeItem('x-token');
+    localStorage.removeItem('email');
   }
 
 

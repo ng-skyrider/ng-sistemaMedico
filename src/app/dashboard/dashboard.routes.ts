@@ -6,6 +6,8 @@ import { PatientIdentificationComponent } from './pages/patient/patient-identifi
 import { RiskFactorsMonitoringComponent } from './pages/patient/risk-factors-monitoring/risk-factors-monitoring.component';
 import { FollowUpConsultationComponent } from './pages/patient/follow-up-consultation/follow-up-consultation.component';
 import { ConsolidadoInformacionRelacionadaComponent } from './pages/personal-salud/consolidado-informacion-relacionada/consolidado-informacion-relacionada.component';
+import { RegistrarUsuariosComponent } from './pages/user/registrar-usuarios/registrar-usuarios.component';
+import { PatientRegisterComponent } from './pages/patient/patient-register/patient-register.component';
 
 export const DASHBOARD_ROUTES: Routes = [
     {
@@ -35,7 +37,15 @@ export const DASHBOARD_ROUTES: Routes = [
     { 
         path: 'ConsolidadoInformacionR',
         component: ConsolidadoInformacionRelacionadaComponent
-     },
+    },
+    {
+        path: 'RegistrarUsuarios',
+        component: RegistrarUsuariosComponent
+    },
+    {
+        path: 'RegistrarPacientes',
+        component: PatientRegisterComponent
+    },
     {
         path: '', // Default route for '/dashboard'
         redirectTo: 'home', // Redirects '/dashboard' to '/dashboard/home'

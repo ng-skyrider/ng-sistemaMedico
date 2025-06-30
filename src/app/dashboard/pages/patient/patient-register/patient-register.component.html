@@ -1,0 +1,126 @@
+<div class="container">
+  <!-- Tabs Navigation -->
+  <div class="tabs">
+    <button class="tab-button" [class.active]="activeTab==='form'" (click)="selectTab('form')">Formulario</button>
+    <button class="tab-button" [class.active]="activeTab==='preview'" (click)="selectTab('preview')">Vista Previa</button>
+  </div>
+
+  <!-- Registro Tab -->
+  <div *ngIf="activeTab==='form'" class="tab-content">
+    <div class="form-card">
+      <h2 class="title">Registrar Nuevo Paciente</h2>
+      <form [formGroup]="registroForm" (ngSubmit)="registrarPaciente()" class="form-custom">
+        <div class="form-grid-patient">
+          
+          <!-- Tipo de Documento -->
+          <div class="form-group">
+            <label for="tipo_documento">Tipo de Documento</label>
+            <select id="tipo_documento" formControlName="tipo_documento" class="form-control">
+              <option value="" disabled>Seleccione...</option>
+              <option value="DNI">DNI</option>
+              <option value="Carnet de Extranjería">Carnet de Extranjería</option>
+              <option value="Pasaporte">Pasaporte</option>
+            </select>
+            <div *ngIf="registroForm.get('tipo_documento')?.touched && registroForm.get('tipo_documento')?.invalid" class="error-message">
+              <span>El tipo de documento es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Número de Documento -->
+          <div class="form-group">
+            <label for="numero_documento">Número de Documento</label>
+            <input type="text" id="numero_documento" formControlName="numero_documento" class="form-control">
+            <div *ngIf="registroForm.get('numero_documento')?.touched && registroForm.get('numero_documento')?.invalid" class="error-message">
+              <span>El número de documento es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Nombres -->
+          <div class="form-group">
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" formControlName="nombres" class="form-control">
+             <div *ngIf="registroForm.get('nombres')?.touched && registroForm.get('nombres')?.invalid" class="error-message">
+              <span>El nombre es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Apellido Paterno -->
+          <div class="form-group">
+            <label for="apellido_paterno">Apellido Paterno</label>
+            <input type="text" id="apellido_paterno" formControlName="apellido_paterno" class="form-control">
+            <div *ngIf="registroForm.get('apellido_paterno')?.touched && registroForm.get('apellido_paterno')?.invalid" class="error-message">
+              <span>El apellido paterno es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Apellido Materno -->
+          <div class="form-group">
+            <label for="apellido_materno">Apellido Materno</label>
+            <input type="text" id="apellido_materno" formControlName="apellido_materno" class="form-control">
+            <div *ngIf="registroForm.get('apellido_materno')?.touched && registroForm.get('apellido_materno')?.invalid" class="error-message">
+              <span>El apellido materno es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Fecha de Nacimiento -->
+          <div class="form-group">
+            <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fecha_nacimiento" formControlName="fecha_nacimiento" class="form-control">
+            <div *ngIf="registroForm.get('fecha_nacimiento')?.touched && registroForm.get('fecha_nacimiento')?.invalid" class="error-message">
+              <span>La fecha de nacimiento es requerida.</span>
+            </div>
+          </div>
+
+          <!-- Sexo -->
+          <div class="form-group">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" formControlName="sexo" class="form-control">
+              <option value="" disabled>Seleccione...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
+            <div *ngIf="registroForm.get('sexo')?.touched && registroForm.get('sexo')?.invalid" class="error-message">
+              <span>El sexo es requerido.</span>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="form-group form-group-full-width">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" formControlName="direccion" class="form-control">
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" formControlName="telefono" class="form-control">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+            <div *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.invalid" class="error-message">
+                <span *ngIf="registroForm.get('email')?.hasError('required')">El correo es requerido.</span>
+                <span *ngIf="registroForm.get('email')?.hasError('email')">Por favor, introduce un correo válido.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón de Registro -->
+        <div class="button-container">
+          <button class="btn btn-action" title="Registrar Paciente" type="submit" [disabled]="!registroForm.valid">
+            <i class="fas fa-plus-circle"></i> <span class="btn-text">Registrar</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Vista Previa Tab -->
+  <div *ngIf="activeTab==='preview'" class="tab-content">
+    <h2 class="title">Listado de Pacientes</h2>
+    <!-- Contenido de la vista previa de pacientes -->
+    <p>La vista previa de pacientes estará disponible aquí.</p>
+  </div>
+</div>

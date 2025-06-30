@@ -1,0 +1,30 @@
+/*
+  Responsive Grid for Patient Registration Form
+*/
+
+.form-grid-patient {
+  display: grid;
+  gap: 15px 20px; /* Vertical and horizontal gap */
+  grid-template-columns: 1fr; /* Mobile-first: 1 column default */
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) {
+  .form-grid-patient {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1024px) {
+  .form-grid-patient {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Class to make a form group span all columns */
+.form-group-full-width {
+  @media (min-width: 768px) {
+    grid-column: 1 / -1; /* Span all available columns */
+  }
+}
