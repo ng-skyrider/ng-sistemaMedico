@@ -1,0 +1,11 @@
+{
+  "/api/reniec/*": {
+    "target": "https://api.apis.net.pe",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/reniec": ""
+    },
+    "logLevel": "debug"
+  }
+} 

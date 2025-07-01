@@ -1,4 +1,15 @@
 <div class="container">
+  <!-- Notification Component -->
+  <app-notify 
+    [show]="showNotification()" 
+    [message]="notificationMessage()" 
+    [type]="notificationType()"
+    (closed)="onNotificationClose()">
+  </app-notify>
+
+  <!-- Loading Component -->
+  <app-loading *ngIf="isLoading()"></app-loading>
+
   <!-- Tabs Navigation -->
   <div class="tabs">
     <button class="tab-button" [class.active]="activeTab==='form'" (click)="selectTab('form')">Formulario</button>
@@ -26,10 +37,28 @@
             </div>
           </div>
 
-          <!-- Número de Documento -->
+          <!-- Número de Documento con botón de búsqueda -->
           <div class="form-group">
-            <label for="numero_documento">Número de Documento</label>
-            <input type="text" id="numero_documento" formControlName="numero_documento" class="form-control">
+            <label for="numero_documento">DNI</label>
+            <div class="input-with-button">
+              <input type="text" id="numero_documento" formControlName="numero_documento" class="form-control" placeholder="Ingrese DNI (8 dígitos)">
+              <button 
+                type="button" 
+                class="search-btn" 
+                (click)="buscarPorDNI()" 
+                [disabled]="isLoading() || !registroForm.get('numero_documento')?.value || registroForm.get('numero_documento')?.value?.length !== 8"
+                title="Buscar datos en RENIEC">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="help-text">
+              <small>
+                <i class="fas fa-info-circle"></i>
+                <a href="#" (click)="mostrarDNIsPrueba(); $event.preventDefault()" class="help-link">
+                  Ver DNIs de prueba disponibles
+                </a>
+              </small>
+            </div>
             <div *ngIf="registroForm.get('numero_documento')?.touched && registroForm.get('numero_documento')?.invalid" class="error-message">
               <span>El número de documento es requerido.</span>
             </div>
@@ -102,7 +131,7 @@
             <input type="email" id="email" formControlName="email" class="form-control">
             <div *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.invalid" class="error-message">
                 <span *ngIf="registroForm.get('email')?.hasError('required')">El correo es requerido.</span>
-                <span *ngIf="registroForm.get('email')?.hasError('email')">Por favor, introduce un correo válido.</span>
+                <span *ngIf="registroForm.get('email')?.hasError('email')">Por favor, introduces un correo válido.</span>
             </div>
           </div>
         </div>
@@ -118,9 +147,58 @@
   </div>
 
   <!-- Vista Previa Tab -->
-  <div *ngIf="activeTab==='preview'" class="tab-content">
-    <h2 class="title">Listado de Pacientes</h2>
-    <!-- Contenido de la vista previa de pacientes -->
-    <p>La vista previa de pacientes estará disponible aquí.</p>
+   <!-- Usuarios Tab -->
+   <div *ngIf="activeTab==='preview'" class="tab-content">
+    <h2 class="title">Listado de Usuarios</h2>
+    <div class="filters">
+      <a (click)="onFilterClick()">
+        @if(filterOpen){
+          <i class="fa fa-bolt" alt="Filtrar tabla de usuarios"></i>
+        }@else {
+          <i class="fa-solid fa-filter" alt="Filtrar tabla de usuarios"></i>
+        }
+      </a>
+      <div class="flex content-busqueda" *ngIf="filterOpen">
+        <div>
+          <label for="fNombre">Nombre: </label>
+          <input type="text" placeholder="Buscar por nombre" [(ngModel)]="searchNombres" name="fNombre" class="form-control">
+        </div>
+        <div>
+          <label for="fEmail">Email: </label>
+          <input type="text" placeholder="Buscar por email" [(ngModel)]="searchEmail" name="fEmail" class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="table-custom">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th class="text-right">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pti of filteredPatients">
+            <td><input type="checkbox"></td>
+            <td>{{pti.nombres}} {{pti.apellido_paterno}} {{pti.apellido_materno}}</td>
+            <td>{{pti.email}}</td>
+            <td>
+              <div class="action-icons">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-edit"></i>
+                <i class="fa fa-trash delete-icon"></i>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="filteredPatients.length===0">
+            <td colspan="5">No se encontraron resultados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
