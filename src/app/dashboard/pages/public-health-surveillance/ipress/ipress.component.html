@@ -1,0 +1,341 @@
+<div class="ipress-container">
+  <!-- Componente de notificaciones -->
+  <app-notify 
+    [show]="showNotification()" 
+    [message]="notificationMessage()" 
+    [type]="notificationType()"
+    (onClose)="onNotificationClose()">
+  </app-notify>
+
+  <!-- Componente de loading -->
+  <app-loading *ngIf="isLoading()"></app-loading>
+
+  <div class="header">
+    <h1>Vigilancia Epidemiológica de Infecciones Asociadas a la Atención de Salud</h1>
+    <h2>Formato de Seguimiento de Pacientes con Factor de Riesgo (Dispositivos Médicos)</h2>
+  </div>
+
+  <form [formGroup]="ipressForm" (ngSubmit)="onSubmit()" class="ipress-form">
+    
+    <!-- Datos de la institución -->
+    <div class="institution-section">
+      <h3>Datos de la Institución</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ipress">Institución Prestadora de Servicios de Salud (IPRESS) *</label>
+          <input 
+            type="text" 
+            id="ipress" 
+            formControlName="ipress" 
+            class="form-control"
+            [class.is-invalid]="ipressForm.get('ipress')?.invalid && ipressForm.get('ipress')?.touched"
+          >
+          <div *ngIf="ipressForm.get('ipress')?.invalid && ipressForm.get('ipress')?.touched" class="invalid-feedback">
+            Este campo es obligatorio
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="sala">Sala *</label>
+          <input 
+            type="text" 
+            id="sala" 
+            formControlName="sala" 
+            class="form-control"
+            [class.is-invalid]="ipressForm.get('sala')?.invalid && ipressForm.get('sala')?.touched"
+          >
+          <div *ngIf="ipressForm.get('sala')?.invalid && ipressForm.get('sala')?.touched" class="invalid-feedback">
+            Este campo es obligatorio
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="servicio">Servicio *</label>
+          <input 
+            type="text" 
+            id="servicio" 
+            formControlName="servicio" 
+            class="form-control"
+            [class.is-invalid]="ipressForm.get('servicio')?.invalid && ipressForm.get('servicio')?.touched"
+          >
+          <div *ngIf="ipressForm.get('servicio')?.invalid && ipressForm.get('servicio')?.touched" class="invalid-feedback">
+            Este campo es obligatorio
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="totalPacientes">Total de pacientes hospitalizados en el mes *</label>
+          <input 
+            type="number" 
+            id="totalPacientes" 
+            formControlName="totalPacientesHospitalizados" 
+            class="form-control"
+            min="0"
+            [class.is-invalid]="ipressForm.get('totalPacientesHospitalizados')?.invalid && ipressForm.get('totalPacientesHospitalizados')?.touched"
+          >
+          <div *ngIf="ipressForm.get('totalPacientesHospitalizados')?.invalid && ipressForm.get('totalPacientesHospitalizados')?.touched" class="invalid-feedback">
+            Ingrese un número válido mayor o igual a 0
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="mes">Mes *</label>
+          <select 
+            id="mes" 
+            formControlName="mes" 
+            class="form-control"
+            [class.is-invalid]="ipressForm.get('mes')?.invalid && ipressForm.get('mes')?.touched"
+          >
+            <option value="">Seleccione un mes</option>
+            <option *ngFor="let mes of meses" [value]="mes.value">{{ mes.label }}</option>
+          </select>
+          <div *ngIf="ipressForm.get('mes')?.invalid && ipressForm.get('mes')?.touched" class="invalid-feedback">
+            Seleccione un mes
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="anio">Año *</label>
+          <select 
+            id="anio" 
+            formControlName="anio" 
+            class="form-control"
+            [class.is-invalid]="ipressForm.get('anio')?.invalid && ipressForm.get('anio')?.touched"
+          >
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+          </select>
+          <div *ngIf="ipressForm.get('anio')?.invalid && ipressForm.get('anio')?.touched" class="invalid-feedback">
+            Seleccione un año
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de pacientes -->
+    <div class="patients-section">
+      <div class="section-header">
+        <h3>Pacientes con Factor de Riesgo</h3>
+        <button type="button" class="btn btn-primary" (click)="agregarPaciente()">
+          <i class="fas fa-plus"></i> Agregar Paciente
+        </button>
+      </div>
+
+      <div *ngIf="pacientesFormArray.length === 0" class="no-patients">
+        <p>No hay pacientes registrados. Haga clic en "Agregar Paciente" para comenzar.</p>
+      </div>
+
+      <div formArrayName="pacientes">
+        <div *ngFor="let paciente of pacientesFormArray.controls; let i = index" 
+             class="patient-card" 
+             [formGroupName]="i">
+          
+          <div class="patient-header">
+            <h4>Paciente {{ i + 1 }}</h4>
+            <button type="button" class="btn btn-danger btn-sm" (click)="eliminarPaciente(i)">
+              <i class="fas fa-trash"></i> Eliminar
+            </button>
+          </div>
+
+          <!-- Datos básicos del paciente -->
+          <div class="patient-basic-info">
+            <div class="form-row">
+              <div class="form-group">
+                <label>N° de cama *</label>
+                <input 
+                  type="number" 
+                  formControlName="numeroCama" 
+                  class="form-control"
+                  min="1"
+                  [class.is-invalid]="paciente.get('numeroCama')?.invalid && paciente.get('numeroCama')?.touched"
+                >
+                <div *ngIf="paciente.get('numeroCama')?.invalid && paciente.get('numeroCama')?.touched" class="invalid-feedback">
+                  Ingrese un número de cama válido
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Historia clínica / DNI / Autogenerado *</label>
+                <input 
+                  type="text" 
+                  formControlName="historiaClinica" 
+                  class="form-control"
+                  [class.is-invalid]="paciente.get('historiaClinica')?.invalid && paciente.get('historiaClinica')?.touched"
+                >
+                <div *ngIf="paciente.get('historiaClinica')?.invalid && paciente.get('historiaClinica')?.touched" class="invalid-feedback">
+                  Este campo es obligatorio
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Apellidos y nombres *</label>
+                <input 
+                  type="text" 
+                  formControlName="apellidosNombres" 
+                  class="form-control"
+                  [class.is-invalid]="paciente.get('apellidosNombres')?.invalid && paciente.get('apellidosNombres')?.touched"
+                >
+                <div *ngIf="paciente.get('apellidosNombres')?.invalid && paciente.get('apellidosNombres')?.touched" class="invalid-feedback">
+                  Este campo es obligatorio
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Sexo *</label>
+                <select 
+                  formControlName="sexo" 
+                  class="form-control"
+                  [class.is-invalid]="paciente.get('sexo')?.invalid && paciente.get('sexo')?.touched"
+                >
+                  <option value="">Seleccione</option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                </select>
+                <div *ngIf="paciente.get('sexo')?.invalid && paciente.get('sexo')?.touched" class="invalid-feedback">
+                  Seleccione el sexo
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Fecha de ingreso al servicio *</label>
+                <input 
+                  type="date" 
+                  formControlName="fechaIngreso" 
+                  class="form-control"
+                  [class.is-invalid]="paciente.get('fechaIngreso')?.invalid && paciente.get('fechaIngreso')?.touched"
+                >
+                <div *ngIf="paciente.get('fechaIngreso')?.invalid && paciente.get('fechaIngreso')?.touched" class="invalid-feedback">
+                  Seleccione la fecha de ingreso
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Edad / peso RN *</label>
+                <input 
+                  type="text" 
+                  formControlName="edadPesoRN" 
+                  class="form-control"
+                  placeholder="Ej: 25 años / 3.2 kg"
+                  [class.is-invalid]="paciente.get('edadPesoRN')?.invalid && paciente.get('edadPesoRN')?.touched"
+                >
+                <div *ngIf="paciente.get('edadPesoRN')?.invalid && paciente.get('edadPesoRN')?.touched" class="invalid-feedback">
+                  Este campo es obligatorio
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label>Diagnóstico médico de ingreso *</label>
+                <input 
+                  type="text" 
+                  formControlName="diagnosticoIngreso" 
+                  class="form-control"
+                  [class.is-invalid]="paciente.get('diagnosticoIngreso')?.invalid && paciente.get('diagnosticoIngreso')?.touched"
+                >
+                <div *ngIf="paciente.get('diagnosticoIngreso')?.invalid && paciente.get('diagnosticoIngreso')?.touched" class="invalid-feedback">
+                  Este campo es obligatorio
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dispositivos médicos -->
+          <div class="medical-devices">
+            <label class="section-label">Dispositivo médico vigilado (selección múltiple)</label>
+            <div class="devices-checkboxes">
+              <div *ngFor="let dispositivo of dispositivosMedicos" class="device-checkbox">
+                <label class="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    [checked]="isDispositivoSelected(i, dispositivo.value)"
+                    (change)="onDispositivoChange(i, dispositivo.value, $event)"
+                  >
+                  {{ dispositivo.label }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seguimiento diario -->
+          <div class="daily-monitoring">
+            <label class="section-label">Seguimiento diario (del 1 al 31)</label>
+            <div class="monitoring-grid">
+              <div *ngFor="let dia of diasDelMes; let diaIndex = index" class="day-checkbox">
+                <label class="day-label">
+                  <input 
+                    type="checkbox" 
+                    [checked]="getSeguimientoDiarioFormArray(i).at(diaIndex).value"
+                    (change)="onSeguimientoChange(i, diaIndex, $event)"
+                  >
+                  {{ dia }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total de días y observaciones -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>Total de días con dispositivo</label>
+              <input 
+                type="number" 
+                formControlName="totalDiasDispositivo" 
+                class="form-control total-days"
+                readonly
+              >
+            </div>
+            
+            <div class="form-group full-width">
+              <label>Observaciones</label>
+              <textarea 
+                formControlName="observaciones" 
+                class="form-control" 
+                rows="3"
+                placeholder="Ingrese observaciones adicionales..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Totales -->
+    <div class="totals-section" *ngIf="pacientesFormArray.length > 0">
+      <div class="total-summary">
+        <h3>Resumen de Totales</h3>
+        <div class="total-item">
+          <span>Total de pacientes:</span>
+          <span class="total-value">{{ pacientesFormArray.length }}</span>
+        </div>
+        <div class="total-item">
+          <span>Total general de días:</span>
+          <span class="total-value">{{ calcularTotalGeneral() }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie de página con información de dispositivos -->
+    <div class="devices-info">
+      <h4>Dispositivos médicos:</h4>
+      <p>
+        <strong>Ventilación mecánica (VM):</strong> Dispositivo de soporte respiratorio mecánico<br>
+        <strong>Catéter Venoso Central (CVC):</strong> Acceso venoso central para administración de medicamentos<br>
+        <strong>Sonda Vesical Permanente (SVD):</strong> Catéter urinario para drenaje vesical continuo
+      </p>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="limpiarFormulario()">
+        <i class="fas fa-eraser"></i> Limpiar Formulario
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading()">
+        <i class="fas fa-save"></i> Guardar Formulario
+      </button>
+    </div>
+  </form>
+</div>

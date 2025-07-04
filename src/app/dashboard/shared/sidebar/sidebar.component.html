@@ -43,6 +43,16 @@
           <li><a routerLink="/dashboard/ConfigurarVigilanciaEpidemiologica" routerLinkActive="active-link"> C. Vigilancia Epidemiológica</a></li>
         </ul>
       </li>
+      <li class="has-submenu" [class.open]="isConfiguracion">
+        <a (click)="toggleConfiguracion()" [class.active-parent]="isConfiguracion">
+          <i class="fas fa-user-injured"></i>
+          <span>Vigilancia Epidemiológica</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </a>
+        <ul class="submenu" [class.show]="isConfiguracion">
+          <li><a routerLink="/dashboard/vigilancia-epidemiologica/ipress" routerLinkActive="active-link"> V. Epidemiológica</a></li>
+        </ul>
+      </li>
       <!-- <li class="has-submenu" [class.open]="isPatientMenuOpen">
         <a (click)="togglePatientMenu()" [class.active-parent]="isPatientMenuOpen"> 
           <i class="fas fa-user-injured"></i>

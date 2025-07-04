@@ -38,8 +38,8 @@ export class ReniecBackendService {
 
   constructor(private http: HttpClient) { }
 
-  buscarPorDNI(dni: string): Observable<ReniecResponse> {
-    return this.http.get<ReniecResponse>(`${this.baseUrl}?numero=${dni}`)
+  buscarPorDNI(dni: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}?numero=${dni}`)
       .pipe(
         map(response => {
           console.log('Respuesta de RENIEC:', response);

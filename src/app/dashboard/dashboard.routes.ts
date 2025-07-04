@@ -1,13 +1,14 @@
 import { Routes } from '@angular/router';
-import { DashboardInitComponent } from './pages/dashboard-init/dashboard-init.component';
-import { HistoriesClinicComponent } from './pages/patient/histories-clinic/histories-clinic.component';
-import { HistoriesClinicExportComponent } from './pages/patient/histories-clinic-export/histories-clinic-export.component';
-import { PatientIdentificationComponent } from './pages/patient/patient-identification/patient-identification.component';
-import { RiskFactorsMonitoringComponent } from './pages/patient/risk-factors-monitoring/risk-factors-monitoring.component';
-import { FollowUpConsultationComponent } from './pages/patient/follow-up-consultation/follow-up-consultation.component';
-import { ConsolidadoInformacionRelacionadaComponent } from './pages/personal-salud/consolidado-informacion-relacionada/consolidado-informacion-relacionada.component';
-import { RegistrarUsuariosComponent } from './pages/user/registrar-usuarios/registrar-usuarios.component';
-import { PatientRegisterComponent } from './pages/patient/patient-register/patient-register.component';
+import { DashboardInitComponent, 
+    HistoriesClinicComponent, 
+    HistoriesClinicExportComponent, 
+    PatientIdentificationComponent, 
+    RiskFactorsMonitoringComponent, 
+    FollowUpConsultationComponent, 
+    ConsolidadoInformacionRelacionadaComponent, 
+    RegistrarUsuariosComponent, 
+    PatientRegisterComponent,
+    IpressComponent } from './pages/pages.index';
 
 export const DASHBOARD_ROUTES: Routes = [
     {
@@ -45,6 +46,23 @@ export const DASHBOARD_ROUTES: Routes = [
     {
         path: 'RegistrarPacientes',
         component: PatientRegisterComponent
+    },
+    {
+        path: 'vigilancia-epidemiologica/ipress',
+        component: IpressComponent
+    },
+    {
+        path: 'vigilancia-epidemiologica',
+        children: [
+            {
+                path: '',
+                component: IpressComponent
+            },
+            {
+                path: 'ipress',
+                component: IpressComponent
+            }
+        ]
     },
     {
         path: '', // Default route for '/dashboard'
